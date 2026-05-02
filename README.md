@@ -13,7 +13,7 @@ GEMINI.md                 fallback para herramientas Gemini/Antigravity
 wiki/                     metodo reutilizable
 docs/                     documentacion viva del proyecto
 specs/                    specs por feature
-.agents/                  catalogo, skills, comandos y subagentes
+.agents/                  catalogo, skills, comandos y prompts de agentes (.agents/agents)
 templates/                reglas base por herramienta
 scripts/setup-agent-tools.sh
 install.sh
@@ -88,9 +88,9 @@ Cambia `codex` por `cursor`, `claude`, `antigravity` o `all`.
 ## Que Hace El Setup
 
 ```text
-Codex       -> usa AGENTS.md y .agents/*
-Cursor      -> .cursor/rules, .cursor/commands, .cursor/skills
-Claude Code -> .claude/agents, .claude/skills, .claude/commands
+Codex       -> usa AGENTS.md y .agents/*; agentes en .codex/agents (desde .agents/agents)
+Cursor      -> .cursor/rules, .cursor/commands, .cursor/skills, .cursor/agents
+Claude Code -> .claude/agents, .claude/skills, .claude/commands (agentes desde .agents/agents)
 Antigravity -> .agent/rules, .agent/workflows, AGENTS.md, GEMINI.md
 ```
 
@@ -245,7 +245,7 @@ wiki-frontend verify
 O manualmente:
 
 ```bash
-find .agents/subagents -maxdepth 1 -type f -name '*.md' | wc -l
+find .agents/agents -maxdepth 1 -type f -name '*.md' | wc -l
 find .agents/skills -name SKILL.md | wc -l
 find .agents/commands -type f -name '*.md' | wc -l
 ```

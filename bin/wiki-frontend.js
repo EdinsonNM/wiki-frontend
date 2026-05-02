@@ -142,10 +142,12 @@ function setup(tool, options) {
     console.log('== Codex ==');
     ensureDir(path.join(CWD, '.agents', 'skills'));
     ensureDir(path.join(CWD, '.agents', 'commands'));
-    ensureDir(path.join(CWD, '.agents', 'subagents'));
+    ensureDir(path.join(CWD, '.agents', 'agents'));
     console.log('ready: .agents/skills');
     console.log('ready: .agents/commands');
-    console.log('ready: .agents/subagents');
+    console.log('ready: .agents/agents');
+    copyDirFiles(path.join(CWD, '.agents', 'agents'), path.join(CWD, '.codex', 'agents'), options);
+    console.log('ready: .codex/agents');
     return;
   }
 
@@ -154,7 +156,9 @@ function setup(tool, options) {
     copyDirFiles(path.join(CWD, 'templates', 'cursor', 'rules'), path.join(CWD, '.cursor', 'rules'), options);
     copyDirFiles(path.join(CWD, '.agents', 'commands'), path.join(CWD, '.cursor', 'commands'), options);
     copyDirFiles(path.join(CWD, '.agents', 'skills'), path.join(CWD, '.cursor', 'skills'), options);
+    copyDirFiles(path.join(CWD, '.agents', 'agents'), path.join(CWD, '.cursor', 'agents'), options);
     copyPath(path.join(CWD, '.agents', 'AGENTS-CATALOG.md'), path.join(CWD, '.cursor', 'AGENTS-CATALOG.md'), options);
+    console.log('ready: .cursor/agents');
     console.log('note: Cursor Project Rules live in .cursor/rules.');
     console.log('note: .cursor/skills support may depend on your Cursor version; rules and commands are the stable path.');
     return;
@@ -163,7 +167,7 @@ function setup(tool, options) {
   if (tool === 'claude') {
     console.log('== Claude Code ==');
     copyPath(path.join(CWD, 'CLAUDE.md'), path.join(CWD, 'CLAUDE.md'), options);
-    copyDirFiles(path.join(CWD, '.agents', 'subagents'), path.join(CWD, '.claude', 'agents'), options);
+    copyDirFiles(path.join(CWD, '.agents', 'agents'), path.join(CWD, '.claude', 'agents'), options);
     copyDirFiles(path.join(CWD, '.agents', 'skills'), path.join(CWD, '.claude', 'skills'), options);
     copyDirFiles(path.join(CWD, '.agents', 'commands'), path.join(CWD, '.claude', 'commands'), options);
     copyPath(path.join(CWD, '.agents', 'AGENTS-CATALOG.md'), path.join(CWD, '.claude', 'AGENTS-CATALOG.md'), options);
@@ -210,15 +214,15 @@ function verify() {
     ok = ok && pass;
   }
 
-  const subagents = countFiles(path.join(CWD, '.agents', 'subagents'), file => file.endsWith('.md'));
+  const agents = countFiles(path.join(CWD, '.agents', 'agents'), file => file.endsWith('.md'));
   const skills = countFiles(path.join(CWD, '.agents', 'skills'), file => path.basename(file) === 'SKILL.md');
   const commands = countFiles(path.join(CWD, '.agents', 'commands'), file => file.endsWith('.md'));
 
-  console.log(`subagents: ${subagents} / 20`);
+  console.log(`agents: ${agents} / 20`);
   console.log(`skills: ${skills} / 12`);
   console.log(`commands: ${commands} / 8`);
 
-  ok = ok && subagents === 20 && skills === 12 && commands === 8;
+  ok = ok && agents === 20 && skills === 12 && commands === 8;
 
   if (!ok) {
     process.exitCode = 1;

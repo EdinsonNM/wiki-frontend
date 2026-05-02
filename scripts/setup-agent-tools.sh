@@ -42,10 +42,12 @@ copy_dir_files() {
 install_codex() {
   echo "== Codex =="
   copy_file "$ROOT/AGENTS.md" "$ROOT/AGENTS.md"
-  mkdir -p "$ROOT/.agents/skills" "$ROOT/.agents/commands" "$ROOT/.agents/subagents"
+  mkdir -p "$ROOT/.agents/skills" "$ROOT/.agents/commands" "$ROOT/.agents/agents"
   echo "ready: .agents/skills"
   echo "ready: .agents/commands"
-  echo "ready: .agents/subagents"
+  echo "ready: .agents/agents"
+  copy_dir_files "$ROOT/.agents/agents" "$ROOT/.codex/agents"
+  echo "ready: .codex/agents"
 }
 
 install_cursor() {
@@ -53,7 +55,9 @@ install_cursor() {
   copy_dir_files "$ROOT/templates/cursor/rules" "$ROOT/.cursor/rules"
   copy_dir_files "$ROOT/.agents/commands" "$ROOT/.cursor/commands"
   copy_dir_files "$ROOT/.agents/skills" "$ROOT/.cursor/skills"
+  copy_dir_files "$ROOT/.agents/agents" "$ROOT/.cursor/agents"
   copy_file "$ROOT/.agents/AGENTS-CATALOG.md" "$ROOT/.cursor/AGENTS-CATALOG.md"
+  echo "ready: .cursor/agents"
   echo "note: Cursor Project Rules live in .cursor/rules."
   echo "note: .cursor/skills support may depend on your Cursor version; rules and commands are the stable path."
 }
@@ -61,7 +65,7 @@ install_cursor() {
 install_claude() {
   echo "== Claude Code =="
   copy_file "$ROOT/CLAUDE.md" "$ROOT/CLAUDE.md"
-  copy_dir_files "$ROOT/.agents/subagents" "$ROOT/.claude/agents"
+  copy_dir_files "$ROOT/.agents/agents" "$ROOT/.claude/agents"
   copy_dir_files "$ROOT/.agents/skills" "$ROOT/.claude/skills"
   copy_dir_files "$ROOT/.agents/commands" "$ROOT/.claude/commands"
   copy_file "$ROOT/.agents/AGENTS-CATALOG.md" "$ROOT/.claude/AGENTS-CATALOG.md"
