@@ -24,18 +24,18 @@ const STARTER_ENTRIES = [
 ];
 
 function usage() {
-  console.log(`wiki-frontend
+  console.log(`frontend-agent-devkit
 
 Usage:
-  wiki-frontend init [--tool codex|cursor|claude|antigravity|all] [--force]
-  wiki-frontend setup --tool codex|cursor|claude|antigravity|all [--force]
-  wiki-frontend verify
-  wiki-frontend help
+  frontend-agent-devkit init [--tool codex|cursor|claude|antigravity|all] [--force]
+  frontend-agent-devkit setup --tool codex|cursor|claude|antigravity|all [--force]
+  frontend-agent-devkit verify
+  frontend-agent-devkit help
 
 Examples:
-  npx wiki-frontend init --tool cursor
-  wiki-frontend setup --tool claude
-  wiki-frontend verify
+  npx frontend-agent-devkit init --tool cursor
+  frontend-agent-devkit setup --tool claude
+  frontend-agent-devkit verify
 `);
 }
 
@@ -118,7 +118,7 @@ function init(options) {
     setup(options.tool, options);
   }
 
-  console.log('wiki-frontend starter installed.');
+  console.log('frontend-agent-devkit starter installed.');
   console.log('Next: ask your agent to read AGENTS.md and run discovery.');
 }
 
@@ -261,4 +261,3 @@ function main() {
 }
 
 main();
-

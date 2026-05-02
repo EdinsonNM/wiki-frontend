@@ -1,11 +1,11 @@
 {
-  "name": "wiki-frontend",
-  "version": "0.1.1",
+  "name": "frontend-agent-devkit",
+  "version": "0.2.0",
   "description": "Portable frontend wiki starter with agents, skills, commands, specs and IDE setup.",
   "license": "MIT",
   "type": "commonjs",
   "bin": {
-    "wiki-frontend": "bin/wiki-frontend.js"
+    "frontend-agent-devkit": "bin/frontend-agent-devkit.js"
   },
   "files": [
     "AGENTS.md",
@@ -24,12 +24,12 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/EdinsonNM/wiki-frontend.git"
+    "url": "git+https://github.com/EdinsonNM/frontend-agent-devkit.git"
   },
   "bugs": {
-    "url": "https://github.com/EdinsonNM/wiki-frontend/issues"
+    "url": "https://github.com/EdinsonNM/frontend-agent-devkit/issues"
   },
-  "homepage": "https://github.com/EdinsonNM/wiki-frontend#readme",
+  "homepage": "https://github.com/EdinsonNM/frontend-agent-devkit#readme",
   "keywords": [
     "frontend",
     "agents",
@@ -37,13 +37,14 @@
     "cursor",
     "claude-code",
     "wiki",
-    "starter"
+    "starter",
+    "devkit"
   ],
   "engines": {
     "node": ">=18"
   },
   "scripts": {
-    "verify": "node bin/wiki-frontend.js verify",
+    "verify": "node bin/frontend-agent-devkit.js verify",
     "pack:dry": "npm pack --dry-run"
   }
 }

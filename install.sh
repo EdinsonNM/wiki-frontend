@@ -1,21 +1,21 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-REPO="${WIKI_FRONTEND_REPO:-EdinsonNM/wiki-frontend}"
-BRANCH="${WIKI_FRONTEND_BRANCH:-main}"
+REPO="${FRONTEND_AGENT_DEVKIT_REPO:-${WIKI_FRONTEND_REPO:-EdinsonNM/frontend-agent-devkit}}"
+BRANCH="${FRONTEND_AGENT_DEVKIT_BRANCH:-${WIKI_FRONTEND_BRANCH:-main}}"
 TOOL=""
 FORCE="false"
 
 usage() {
   cat <<'USAGE'
-Install wiki-frontend starter into the current project.
+Install frontend-agent-devkit starter into the current project.
 
 Usage:
   bash install.sh [--tool codex|cursor|claude|antigravity|all] [--force]
 
 Remote usage after publishing:
-  bash <(curl -fsSL https://raw.githubusercontent.com/EdinsonNM/wiki-frontend/main/install.sh)
-  bash <(curl -fsSL https://raw.githubusercontent.com/EdinsonNM/wiki-frontend/main/install.sh) --tool cursor
+  bash <(curl -fsSL https://raw.githubusercontent.com/EdinsonNM/frontend-agent-devkit/main/install.sh)
+  bash <(curl -fsSL https://raw.githubusercontent.com/EdinsonNM/frontend-agent-devkit/main/install.sh) --tool cursor
 
 Options:
   --tool   Run scripts/setup-agent-tools.sh after copying.
@@ -63,9 +63,9 @@ trap cleanup EXIT
 ARCHIVE_URL="https://github.com/${REPO}/archive/refs/heads/${BRANCH}.tar.gz"
 
 echo "Downloading ${REPO}@${BRANCH}..."
-curl -fsSL "$ARCHIVE_URL" -o "$TMP_DIR/wiki-frontend.tar.gz"
-tar -xzf "$TMP_DIR/wiki-frontend.tar.gz" -C "$TMP_DIR"
-SRC_DIR="$(find "$TMP_DIR" -maxdepth 1 -type d -name 'wiki-frontend-*' | head -n 1)"
+curl -fsSL "$ARCHIVE_URL" -o "$TMP_DIR/frontend-agent-devkit.tar.gz"
+tar -xzf "$TMP_DIR/frontend-agent-devkit.tar.gz" -C "$TMP_DIR"
+SRC_DIR="$(find "$TMP_DIR" -maxdepth 1 -type d -name 'frontend-agent-devkit-*' | head -n 1)"
 
 if [ -z "$SRC_DIR" ] || [ ! -d "$SRC_DIR" ]; then
   echo "Could not find extracted starter directory." >&2
@@ -104,6 +104,6 @@ if [ -n "$TOOL" ]; then
   bash "$TARGET/scripts/setup-agent-tools.sh" "$TOOL"
 fi
 
-echo "wiki-frontend starter installed."
+echo "frontend-agent-devkit starter installed."
 echo "Next: ask your agent to read AGENTS.md and run discovery."
 
