@@ -6,6 +6,10 @@ El formato sigue [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/) y e
 
 ## [Unreleased]
 
+### Added
+
+- `init` / `setup`: si se omiten archivos por existir ya y no usaste `--force`, al final se muestra un recordatorio con el comando sugerido (incluye `--force`) para reemplazar por la copia del kit.
+
 ## [1.1.1] - 2026-05-02
 
 ### Fixed

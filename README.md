@@ -238,7 +238,7 @@ frontend-agent-devkit verify
 frontend-agent-devkit help
 ```
 
-Por defecto **no** sobrescribe archivos que ya existen; usa `--force` solo si quieres que el kit vuelva a copiar plantillas encima de las actuales.
+Por defecto **no** sobrescribe archivos que ya existen; usa **`--force`** si quieres que el kit vuelva a copiar plantillas encima de las actuales (wiki, `.agents/`, adaptadores del IDE, etc.). Tras `init` o `setup`, si algún archivo se omitió por ya existir, el CLI imprime un **recordatorio al final** con el comando concreto (incluido `--force`) para que puedas actualizar sin tener que buscar en la documentación.
 
 ### Qué hace el setup
 
@@ -302,6 +302,8 @@ Desde la raíz del proyecto:
 npx frontend-agent-devkit init
 ```
 
+Si el proyecto **ya tenía** archivos del kit, verás líneas `skip existing: …` y, al terminar, un **mensaje que sugiere** repetir el comando con **`--force`** para sustituir todo por la versión del paquete que acabas de ejecutar.
+
 Para traer de nuevo los archivos del kit **sobrescribiendo** los que ya hubiera (úsalo con cuidado si personalizaste `docs/`, `AGENTS.md` o `.agents/`):
 
 ```bash
@@ -314,7 +316,7 @@ Si además quieres refrescar los adaptadores del IDE:
 npx frontend-agent-devkit init --tool cursor --force
 ```
 
-(sustituye `cursor` por `claude`, `codex`, `antigravity` o `all` según tu caso).
+(sustituye `cursor` por `claude`, `codex`, `antigravity` o `all` según tu caso). Lo mismo aplica a **`setup`**: `npx frontend-agent-devkit setup --tool cursor --force` cuando solo quieras regenerar carpetas del IDE.
 
 ### Publicar una nueva versión en npm (mantenedores del paquete)
 

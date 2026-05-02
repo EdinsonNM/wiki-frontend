@@ -39,7 +39,25 @@ Examples:
   frontend-agent-devkit verify
 
 Sin --force: las carpetas existentes se fusionan (se copian archivos que faltan); los archivos que ya existen no se sobrescriben. Con --force también se sobrescriben archivos.
+
+Si hubo archivos omitidos, al finalizar verás un recordatorio con el comando sugerido usando --force.
 `);
+}
+
+function printForceHintIfNeeded(options, command) {
+  if (options.force) return;
+  const n = options.skippedExisting;
+  if (typeof n !== 'number' || n < 1) return;
+
+  const tool = options.tool ? ` --tool ${options.tool}` : '';
+  const base = `frontend-agent-devkit ${command}${tool} --force`;
+  console.log('');
+  console.log(
+    `Nota: se omitieron ${n} archivo(s) que ya existían en el proyecto. ` +
+      'Para reemplazarlos por la copia del kit (útil tras actualizar el paquete), ejecuta de nuevo:'
+  );
+  console.log(`  npx ${base}`);
+  console.log('(Si tienes el CLI global: el mismo comando sin npx.)');
 }
 
 function parseArgs(argv) {
@@ -111,6 +129,9 @@ function copyPath(src, dest, options = {}) {
   // Archivos: no sobrescribir si ya existe salvo --force
   if (exists(dest) && !force) {
     console.log(`skip existing: ${label}`);
+    if (typeof options.skippedExisting === 'number') {
+      options.skippedExisting += 1;
+    }
     return;
   }
 
@@ -281,13 +302,17 @@ function main() {
 
   if (command === 'init') {
     validateTool(args.tool, false);
+    args.skippedExisting = 0;
     init(args);
+    printForceHintIfNeeded(args, 'init');
     return;
   }
 
   if (command === 'setup') {
     validateTool(args.tool, true);
+    args.skippedExisting = 0;
     setup(args.tool, args);
+    printForceHintIfNeeded(args, 'setup');
     return;
   }
 
