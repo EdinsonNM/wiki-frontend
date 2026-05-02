@@ -6,6 +6,16 @@ El formato sigue [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/) y e
 
 ## [Unreleased]
 
+## [1.1.1] - 2026-05-02
+
+### Fixed
+
+- `init` / `setup`: si las carpetas destino ya existían (p. ej. `.agents`, `wiki`), se fusionan y se copian los archivos que faltan; antes se omitía todo el árbol. Los archivos ya existentes solo se sobrescriben con `--force`.
+
+### Changed
+
+- Documentación del secreto `NPM_TOKEN`: token granular npm con **Bypass 2FA** (Classic/Automation ya no aplican).
+
 ## [1.1.0] - 2026-05-02
 
 ### Changed
