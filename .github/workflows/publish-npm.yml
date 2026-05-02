@@ -1,7 +1,8 @@
 # Publica en npm cuando la versión en package.json es MAYOR que la de npm.
 # El mantenedor sube versión + CHANGELOG.md en main; este workflow no ejecuta npm version ni commits.
 #
-# Secretos: NPM_TOKEN. Tras publish exitoso empuja el tag vX.Y.Z si aún no existe en origin.
+# Secretos: NPM_TOKEN (token granular npm con "Bypass 2FA" para escritura en CI).
+# Tras publish exitoso empuja el tag vX.Y.Z si aún no existe en origin.
 
 name: Publish npm
 

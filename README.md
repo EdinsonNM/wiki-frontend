@@ -320,7 +320,7 @@ npx frontend-agent-devkit init --tool cursor --force
 
 El workflow **Publish npm** compara la versión de **`package.json`** con la de **npm**: si la del repo es **mayor**, ejecuta **`npm publish`** y empuja el tag **`vX.Y.Z`** si no existía. **No** modifica la versión en CI.
 
-El mantenedor (o el agente siguiendo **`.cursor/skills/npm-publish-release/SKILL.md`**) debe estar en **`main`**, **commitear antes el trabajo del release**, **luego** decidir **patch / minor / major** (script + criterio), aplicar **`npm version … --no-git-tag-version`**, **`CHANGELOG.md`**, **commit de release** y **push** a `main`. Requiere el secreto **`NPM_TOKEN`**. El workflow **CI** sigue ejecutando `npm run verify` en push y PR.
+El mantenedor (o el agente siguiendo **`.cursor/skills/npm-publish-release/SKILL.md`**) debe estar en **`main`**, **commitear antes el trabajo del release**, **luego** decidir **patch / minor / major** (script + criterio), aplicar **`npm version … --no-git-tag-version`**, **`CHANGELOG.md`**, **commit de release** y **push** a `main`. Requiere el secreto **`NPM_TOKEN`**: token **granular** de npm con **Bypass two-factor authentication** activado y permiso de escritura sobre el paquete (sin eso, **`EOTP`** en Actions). El workflow **CI** sigue ejecutando `npm run verify` en push y PR.
 
 En el **repo del devkit**, **`.cursor/`** lleva reglas y skills **solo para desarrollar este proyecto**; el kit que se publica vive en **`tools/agents-kit/`** y sigue instalándose en **`.agents/`** en proyectos consumidores (sin cambiar su flujo).
 

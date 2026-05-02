@@ -24,4 +24,6 @@ disable-model-invocation: true
 
 7. **Commit + push del release:** solo lo que suela quedar tras el bump (típicamente `package.json` + `CHANGELOG.md`) → `chore(release): X.Y.Z` → `git push origin main`. El trabajo ya va commiteado desde el paso 2.
 
-Secreto **`NPM_TOKEN`**. Script: `.github/scripts/determine-npm-bump.sh`.
+Secreto **`NPM_TOKEN`** en GitHub (nombre exacto). npm solo admite **tokens granulares**: al crear en npmjs.com → **Generate New Token**, marca **Bypass two-factor authentication** (si no, **`EOTP`** en Actions). Permisos de **escritura** y acceso al paquete (p. ej. `frontend-agent-devkit`). Docs: https://docs.npmjs.com/creating-and-viewing-access-tokens
+
+Script: `.github/scripts/determine-npm-bump.sh`.

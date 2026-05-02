@@ -37,6 +37,8 @@ Examples:
   npx frontend-agent-devkit init --tool cursor
   frontend-agent-devkit setup --tool claude
   frontend-agent-devkit verify
+
+Sin --force: las carpetas existentes se fusionan (se copian archivos que faltan); los archivos que ya existen no se sobrescriben. Con --force también se sobrescriben archivos.
 `);
 }
 
@@ -94,13 +96,10 @@ function copyPath(src, dest, options = {}) {
 
   if (!exists(src)) return;
 
-  if (exists(dest) && !force) {
-    console.log(`skip existing: ${label}`);
-    return;
-  }
+  const statSrc = fs.statSync(src);
 
-  const stat = fs.statSync(src);
-  if (stat.isDirectory()) {
+  // Carpetas: fusionar siempre (añadir hijos que falten). No saltar la carpeta entera si ya existe.
+  if (statSrc.isDirectory()) {
     ensureDir(dest);
     for (const child of fs.readdirSync(src)) {
       if (child === '.git' || child === 'node_modules') continue;
@@ -109,9 +108,15 @@ function copyPath(src, dest, options = {}) {
     return;
   }
 
+  // Archivos: no sobrescribir si ya existe salvo --force
+  if (exists(dest) && !force) {
+    console.log(`skip existing: ${label}`);
+    return;
+  }
+
   ensureDir(path.dirname(dest));
   fs.copyFileSync(src, dest);
-  console.log(`${exists(dest) && force ? 'installed' : 'installed'}: ${label}`);
+  console.log(`installed: ${label}`);
 }
 
 function copyDirFiles(srcDir, destDir, options = {}) {
