@@ -1,0 +1,17 @@
+---
+description: Reglas de arquitectura frontend y boundaries.
+globs: src/**/*,app/**/*,packages/**/*
+alwaysApply: false
+---
+
+# Frontend Architecture
+
+Antes de cambiar arquitectura, lee:
+
+- `AGENTS.md`
+- `wiki/architecture/frontend-clean-architecture.md`
+- `docs/architecture/overview.md`
+- `docs/architecture/boundaries.md`
+
+Respeta patrones existentes. No introduzcas librerias sin justificar responsabilidad.
+
