@@ -1,6 +1,6 @@
 {
   "name": "wiki-frontend",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Portable frontend wiki starter with agents, skills, commands, specs and IDE setup.",
   "license": "MIT",
   "type": "commonjs",
