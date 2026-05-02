@@ -1,0 +1,49 @@
+{
+  "name": "wiki-frontend",
+  "version": "0.1.0",
+  "description": "Portable frontend wiki starter with agents, skills, commands, specs and IDE setup.",
+  "license": "MIT",
+  "type": "commonjs",
+  "bin": {
+    "wiki-frontend": "bin/wiki-frontend.js"
+  },
+  "files": [
+    "AGENTS.md",
+    "CLAUDE.md",
+    "GEMINI.md",
+    "README.md",
+    "STARTER-AUDIT.md",
+    "install.sh",
+    "scripts/",
+    "templates/",
+    "wiki/",
+    "docs/",
+    "specs/",
+    ".agents/",
+    "bin/"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EdinsonNM/wiki-frontend.git"
+  },
+  "bugs": {
+    "url": "https://github.com/EdinsonNM/wiki-frontend/issues"
+  },
+  "homepage": "https://github.com/EdinsonNM/wiki-frontend#readme",
+  "keywords": [
+    "frontend",
+    "agents",
+    "codex",
+    "cursor",
+    "claude-code",
+    "wiki",
+    "starter"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "verify": "node bin/wiki-frontend.js verify",
+    "pack:dry": "npm pack --dry-run"
+  }
+}

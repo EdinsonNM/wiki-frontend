@@ -21,6 +21,36 @@ install.sh
 
 ## Instalacion Rapida
 
+### Con npx
+
+Cuando el paquete este publicado en npm:
+
+```bash
+npx wiki-frontend init
+npx wiki-frontend init --tool cursor
+npx wiki-frontend init --tool claude
+npx wiki-frontend init --tool codex
+npx wiki-frontend init --tool all
+```
+
+Instalacion global:
+
+```bash
+npm install -g wiki-frontend
+wiki-frontend init --tool cursor
+```
+
+Comandos disponibles:
+
+```bash
+wiki-frontend init [--tool codex|cursor|claude|antigravity|all] [--force]
+wiki-frontend setup --tool codex|cursor|claude|antigravity|all [--force]
+wiki-frontend verify
+wiki-frontend help
+```
+
+### Con curl
+
 Desde la raiz de cualquier proyecto:
 
 ```bash
@@ -209,6 +239,12 @@ Usa `--force` con cuidado si ya adaptaste `docs/`, `AGENTS.md` o archivos de `.a
 Despues de instalar:
 
 ```bash
+wiki-frontend verify
+```
+
+O manualmente:
+
+```bash
 find .agents/subagents -maxdepth 1 -type f -name '*.md' | wc -l
 find .agents/skills -name SKILL.md | wc -l
 find .agents/commands -type f -name '*.md' | wc -l
@@ -230,4 +266,3 @@ Valores esperados:
 - Antigravity
 
 Antigravity cambia rapido; valida en tu version instalada si reconoce `.agent/rules` y `.agent/workflows`. `AGENTS.md` y `GEMINI.md` quedan como fallback conservador.
-
