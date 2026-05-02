@@ -8,7 +8,7 @@ Revision del starter contra `wiki-frontend-only`.
 - `wiki/architecture/frontend-clean-architecture.md` se mantiene como hub y se divide en subdocumentos para lectura gradual.
 - `wiki/` agrega `delivery/architecture-alignment.md` y `delivery/tool-compatibility.md`.
 - `docs/` sigue la estructura recomendada para documentacion viva del proyecto.
-- `.agents/` contiene catalogo, skills, comandos y los 20 subagentes recomendados por `wiki/delivery/subagents-index.md`, cada uno con prompt listo para usar.
+- El paquete declara el catalogo en `tools/agents-kit/`; tras `init` (o `install.sh`) queda en `.agents/` con skills, comandos y los 20 subagentes de `wiki/delivery/subagents-index.md`.
 - `scripts/setup-agent-tools.sh` sincroniza adaptadores para Codex, Cursor, Claude Code y Antigravity.
 
 ## Regla Critica

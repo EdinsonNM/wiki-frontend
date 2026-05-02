@@ -8,6 +8,8 @@
     "frontend-agent-devkit": "bin/frontend-agent-devkit.js"
   },
   "files": [
+    ".gitignore",
+    "CHANGELOG.md",
     "AGENTS.md",
     "CLAUDE.md",
     "GEMINI.md",
@@ -19,7 +21,8 @@
     "wiki/",
     "docs/",
     "specs/",
-    ".agents/",
+    "tools/agents-kit/",
+    "tools/README.md",
     "bin/"
   ],
   "repository": {

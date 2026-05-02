@@ -1,0 +1,4 @@
+# Salidas locales de `frontend-agent-devkit setup` / `init --tool` (fuente: tools/agents-kit → .agents)
+.claude/
+.codex/
+.agent/

@@ -1,6 +1,6 @@
 # frontend-agent-devkit
 
-**Copia en la raíz de tu proyecto frontend** una capa de trabajo para asistentes de IA: método documentado (`wiki/`), plantillas para tu documentación viva (`docs/`, `specs/`), un contrato local (`AGENTS.md`) y un catálogo versionado de **subagentes, skills y comandos** en `.agents/`. El CLI puede además generar las carpetas que esperan Cursor, Claude Code, Codex o Antigravity.
+**Copia en la raíz de tu proyecto frontend** una capa de trabajo para asistentes de IA: método documentado (`wiki/`), plantillas para tu documentación viva (`docs/`, `specs/`), un contrato local (`AGENTS.md`) y un catálogo de **subagentes, skills y comandos** que el paquete lleva en **`tools/agents-kit/`** y que **`init`** deja en **`.agents/`** en tu repo (mismo comportamiento que antes). El CLI puede además generar las carpetas que esperan Cursor, Claude Code, Codex o Antigravity.
 
 No es un framework de UI ni un generador de apps: **no reemplaza tu código**. Es una forma de que los agentes **lean en orden**, **no contradigan la arquitectura** que tú defines y **reutilicen los mismos flujos** (discovery, specs, QA, docs) en cada repo.
 
@@ -22,7 +22,7 @@ No es un framework de UI ni un generador de apps: **no reemplaza tu código**. E
 
 ### Por que existe
 
-Sin reglas compartidas, los asistentes de código **improvisan**: recomiendan carpetas nuevas, contradicen decisiones ya tomadas o leen documentación de más o de menos. Ese vaivén cuesta tiempo y rompe arquitectura. El kit existe para dar un **marco repetible**: contrato del repo (`AGENTS.md`), método en `wiki/`, catálogo operativo en `.agents/` y plantillas en `docs/`, de forma que **cada proyecto** pueda alinearse sin depender de un solo chat o de un solo modelo.
+Sin reglas compartidas, los asistentes de código **improvisan**: recomiendan carpetas nuevas, contradicen decisiones ya tomadas o leen documentación de más o de menos. Ese vaivén cuesta tiempo y rompe arquitectura. El kit existe para dar un **marco repetible**: contrato del repo (`AGENTS.md`), método en `wiki/`, catálogo operativo (empaquetado en `tools/agents-kit/`, instalado como `.agents/`) y plantillas en `docs/`, de forma que **cada proyecto** pueda alinearse sin depender de un solo chat o de un solo modelo.
 
 ### Para que sirve
 
@@ -44,7 +44,7 @@ Son **cuatro piezas** que trabajan juntas:
 
 1. **Método reutilizable** (`wiki/`): cómo hacer discovery, specs, alineación arquitectónica, pruebas y trabajo multiagente; sirve como plantilla de proceso.
 2. **Contrato del repo** (`AGENTS.md`): qué debe hacer el agente primero, qué está prohibido por defecto y cómo clasificar tareas.
-3. **Kit operativo** (`.agents/`): prompts y procedimientos listos (subagentes, skills, comandos) que puedes copiar a cada herramienta con `setup`.
+3. **Kit operativo** (en el paquete: `tools/agents-kit/`; en tu proyecto tras `init`: **`.agents/`**): prompts y procedimientos listos que puedes sincronizar a cada herramienta con `setup`.
 4. **Tu verdad de proyecto** (`docs/`, `specs/`): esqueleto y convenciones para que documentes stack, arquitectura, integraciones y features reales; el agente los actualiza según cambios, no al revés.
 
 ### Para quién es
@@ -66,7 +66,7 @@ Son **cuatro piezas** que trabajan juntas:
 | Contrato e IDE | `AGENTS.md`, `CLAUDE.md`, `GEMINI.md` |
 | Método (plantilla) | `wiki/` (índice, delivery, arquitectura objetivo) |
 | Documentación del proyecto | `docs/`, `specs/` (plantillas y huecos para llenar) |
-| Catálogo de agentes | `.agents/` (`agents/`, `skills/`, `commands/`, `AGENTS-CATALOG.md`) |
+| Catálogo de agentes | `tools/agents-kit/` en el paquete → **`.agents/`** en el proyecto destino (`agents/`, `skills/`, `commands/`, `AGENTS-CATALOG.md`) |
 | Por herramienta | `templates/`, `scripts/` (el CLI usa este flujo al pasar `--tool`) |
 
 Tras `npx frontend-agent-devkit init` (con o sin `--tool`), puedes ejecutar `frontend-agent-devkit verify` para comprobar que el kit copió bien los conteos esperados de agentes, skills y comandos.
@@ -242,7 +242,7 @@ Por defecto **no** sobrescribe archivos que ya existen; usa `--force` solo si qu
 
 ### Qué hace el setup
 
-`setup` (o `init --tool ...`) **no cambia tu aplicación**: replica desde `.agents/` (y plantillas) hacia las rutas que cada herramienta suele leer, para que el mismo catálogo viva en un solo lugar.
+`setup` (o `init --tool ...`) **no cambia tu aplicación**: replica desde **`.agents/`** del proyecto (rellenado desde `tools/agents-kit` al hacer `init`) y desde plantillas hacia las rutas que cada herramienta suele leer.
 
 ```text
 Codex       -> usa AGENTS.md y .agents/*; agentes en .codex/agents (desde .agents/agents)
@@ -315,6 +315,14 @@ npx frontend-agent-devkit init --tool cursor --force
 ```
 
 (sustituye `cursor` por `claude`, `codex`, `antigravity` o `all` según tu caso).
+
+### Publicar una nueva versión en npm (mantenedores del paquete)
+
+El workflow **Publish npm** compara la versión de **`package.json`** con la de **npm**: si la del repo es **mayor**, ejecuta **`npm publish`** y empuja el tag **`vX.Y.Z`** si no existía. **No** modifica la versión en CI.
+
+El mantenedor (o el agente siguiendo **`.cursor/skills/npm-publish-release/SKILL.md`**) debe estar en **`main`**, **commitear antes el trabajo del release**, **luego** decidir **patch / minor / major** (script + criterio), aplicar **`npm version … --no-git-tag-version`**, **`CHANGELOG.md`**, **commit de release** y **push** a `main`. Requiere el secreto **`NPM_TOKEN`**. El workflow **CI** sigue ejecutando `npm run verify` en push y PR.
+
+En el **repo del devkit**, **`.cursor/`** lleva reglas y skills **solo para desarrollar este proyecto**; el kit que se publica vive en **`tools/agents-kit/`** y sigue instalándose en **`.agents/`** en proyectos consumidores (sin cambiar su flujo).
 
 ---
 

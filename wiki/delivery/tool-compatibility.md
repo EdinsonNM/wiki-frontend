@@ -8,7 +8,7 @@ Registrar ubicaciones usadas por el setup multi herramienta y que partes deben v
 
 - Guia principal: `AGENTS.md`.
 - Codex descubre `AGENTS.md` en el repo y puede combinar instrucciones por jerarquia.
-- Este kit usa `.agents/skills`, `.agents/commands` y `.agents/agents` como fuente canonica local del proyecto.
+- En un proyecto ya inicializado, `.agents/skills`, `.agents/commands` y `.agents/agents` son la fuente canonica local (copiados desde `tools/agents-kit/` del paquete al ejecutar `init`).
 
 Referencia: https://developers.openai.com/codex/guides/agents-md
 

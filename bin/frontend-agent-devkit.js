@@ -8,8 +8,9 @@ const ROOT = path.resolve(__dirname, '..');
 const CWD = process.cwd();
 const VALID_TOOLS = new Set(['codex', 'cursor', 'claude', 'claude-code', 'antigravity', 'all']);
 
+const TOOLS_AGENTS_KIT = path.join(ROOT, 'tools', 'agents-kit');
+
 const STARTER_ENTRIES = [
-  '.agents',
   'AGENTS.md',
   'CLAUDE.md',
   'GEMINI.md',
@@ -67,6 +68,26 @@ function exists(target) {
   return fs.existsSync(target);
 }
 
+function hasToolsAgentsKitAt(cwd) {
+  return exists(path.join(cwd, 'tools', 'agents-kit', 'AGENTS-CATALOG.md'));
+}
+
+function agentsSourceForSetup() {
+  const dot = path.join(CWD, '.agents');
+  if (exists(path.join(dot, 'AGENTS-CATALOG.md'))) return dot;
+  const localKit = path.join(CWD, 'tools', 'agents-kit');
+  if (exists(path.join(localKit, 'AGENTS-CATALOG.md'))) return localKit;
+  return dot;
+}
+
+function resolveAgentsRootForVerify() {
+  const dot = path.join(CWD, '.agents');
+  if (exists(path.join(dot, 'AGENTS-CATALOG.md'))) return dot;
+  const localKit = path.join(CWD, 'tools', 'agents-kit');
+  if (exists(path.join(localKit, 'AGENTS-CATALOG.md'))) return localKit;
+  return dot;
+}
+
 function copyPath(src, dest, options = {}) {
   const force = Boolean(options.force);
   const label = path.relative(CWD, dest) || path.basename(dest);
@@ -110,6 +131,13 @@ function validateTool(tool, required = false) {
 }
 
 function init(options) {
+  if (!exists(path.join(TOOLS_AGENTS_KIT, 'AGENTS-CATALOG.md'))) {
+    console.error('Missing tools/agents-kit in this package. Reinstall frontend-agent-devkit.');
+    process.exit(1);
+  }
+
+  copyPath(TOOLS_AGENTS_KIT, path.join(CWD, '.agents'), options);
+
   for (const entry of STARTER_ENTRIES) {
     copyPath(path.join(ROOT, entry), path.join(CWD, entry), options);
   }
@@ -138,6 +166,8 @@ function setup(tool, options) {
     return;
   }
 
+  const src = agentsSourceForSetup();
+
   if (tool === 'codex') {
     console.log('== Codex ==');
     ensureDir(path.join(CWD, '.agents', 'skills'));
@@ -146,7 +176,7 @@ function setup(tool, options) {
     console.log('ready: .agents/skills');
     console.log('ready: .agents/commands');
     console.log('ready: .agents/agents');
-    copyDirFiles(path.join(CWD, '.agents', 'agents'), path.join(CWD, '.codex', 'agents'), options);
+    copyDirFiles(path.join(src, 'agents'), path.join(CWD, '.codex', 'agents'), options);
     console.log('ready: .codex/agents');
     return;
   }
@@ -154,10 +184,14 @@ function setup(tool, options) {
   if (tool === 'cursor') {
     console.log('== Cursor ==');
     copyDirFiles(path.join(CWD, 'templates', 'cursor', 'rules'), path.join(CWD, '.cursor', 'rules'), options);
-    copyDirFiles(path.join(CWD, '.agents', 'commands'), path.join(CWD, '.cursor', 'commands'), options);
-    copyDirFiles(path.join(CWD, '.agents', 'skills'), path.join(CWD, '.cursor', 'skills'), options);
-    copyDirFiles(path.join(CWD, '.agents', 'agents'), path.join(CWD, '.cursor', 'agents'), options);
-    copyPath(path.join(CWD, '.agents', 'AGENTS-CATALOG.md'), path.join(CWD, '.cursor', 'AGENTS-CATALOG.md'), options);
+    if (hasToolsAgentsKitAt(CWD)) {
+      console.log('frontend-agent-devkit repo: solo reglas en .cursor; el kit publicado está en tools/agents-kit (no se copia catalogo a .cursor).');
+      return;
+    }
+    copyDirFiles(path.join(src, 'commands'), path.join(CWD, '.cursor', 'commands'), options);
+    copyDirFiles(path.join(src, 'skills'), path.join(CWD, '.cursor', 'skills'), options);
+    copyDirFiles(path.join(src, 'agents'), path.join(CWD, '.cursor', 'agents'), options);
+    copyPath(path.join(src, 'AGENTS-CATALOG.md'), path.join(CWD, '.cursor', 'AGENTS-CATALOG.md'), options);
     console.log('ready: .cursor/agents');
     console.log('note: Cursor Project Rules live in .cursor/rules.');
     console.log('note: .cursor/skills support may depend on your Cursor version; rules and commands are the stable path.');
@@ -167,10 +201,10 @@ function setup(tool, options) {
   if (tool === 'claude') {
     console.log('== Claude Code ==');
     copyPath(path.join(CWD, 'CLAUDE.md'), path.join(CWD, 'CLAUDE.md'), options);
-    copyDirFiles(path.join(CWD, '.agents', 'agents'), path.join(CWD, '.claude', 'agents'), options);
-    copyDirFiles(path.join(CWD, '.agents', 'skills'), path.join(CWD, '.claude', 'skills'), options);
-    copyDirFiles(path.join(CWD, '.agents', 'commands'), path.join(CWD, '.claude', 'commands'), options);
-    copyPath(path.join(CWD, '.agents', 'AGENTS-CATALOG.md'), path.join(CWD, '.claude', 'AGENTS-CATALOG.md'), options);
+    copyDirFiles(path.join(src, 'agents'), path.join(CWD, '.claude', 'agents'), options);
+    copyDirFiles(path.join(src, 'skills'), path.join(CWD, '.claude', 'skills'), options);
+    copyDirFiles(path.join(src, 'commands'), path.join(CWD, '.claude', 'commands'), options);
+    copyPath(path.join(src, 'AGENTS-CATALOG.md'), path.join(CWD, '.claude', 'AGENTS-CATALOG.md'), options);
     console.log('ready: .claude/agents');
     console.log('ready: .claude/skills');
     console.log('ready: .claude/commands');
@@ -181,8 +215,8 @@ function setup(tool, options) {
     console.log('== Antigravity ==');
     copyPath(path.join(CWD, 'GEMINI.md'), path.join(CWD, 'GEMINI.md'), options);
     copyDirFiles(path.join(CWD, 'templates', 'antigravity', 'rules'), path.join(CWD, '.agent', 'rules'), options);
-    copyDirFiles(path.join(CWD, '.agents', 'commands'), path.join(CWD, '.agent', 'workflows'), options);
-    copyPath(path.join(CWD, '.agents', 'AGENTS-CATALOG.md'), path.join(CWD, '.agent', 'AGENTS-CATALOG.md'), options);
+    copyDirFiles(path.join(src, 'commands'), path.join(CWD, '.agent', 'workflows'), options);
+    copyPath(path.join(src, 'AGENTS-CATALOG.md'), path.join(CWD, '.agent', 'AGENTS-CATALOG.md'), options);
     console.log('note: Antigravity paths can vary by version. Verify .agent/rules and .agent/workflows in the IDE.');
   }
 }
@@ -202,10 +236,12 @@ function countFiles(dir, predicate) {
 }
 
 function verify() {
+  const agentsRoot = resolveAgentsRootForVerify();
+  const catalogPath = path.join(agentsRoot, 'AGENTS-CATALOG.md');
   const checks = [
     ['AGENTS.md', exists(path.join(CWD, 'AGENTS.md'))],
     ['wiki/index.md', exists(path.join(CWD, 'wiki', 'index.md'))],
-    ['.agents/AGENTS-CATALOG.md', exists(path.join(CWD, '.agents', 'AGENTS-CATALOG.md'))]
+    ['agents kit catalog', exists(catalogPath)]
   ];
 
   let ok = true;
@@ -214,9 +250,9 @@ function verify() {
     ok = ok && pass;
   }
 
-  const agents = countFiles(path.join(CWD, '.agents', 'agents'), file => file.endsWith('.md'));
-  const skills = countFiles(path.join(CWD, '.agents', 'skills'), file => path.basename(file) === 'SKILL.md');
-  const commands = countFiles(path.join(CWD, '.agents', 'commands'), file => file.endsWith('.md'));
+  const agents = countFiles(path.join(agentsRoot, 'agents'), file => file.endsWith('.md'));
+  const skills = countFiles(path.join(agentsRoot, 'skills'), file => path.basename(file) === 'SKILL.md');
+  const commands = countFiles(path.join(agentsRoot, 'commands'), file => file.endsWith('.md'));
 
   console.log(`agents: ${agents} / 20`);
   console.log(`skills: ${skills} / 12`);

@@ -99,6 +99,13 @@ done < <(find "$SRC_DIR" -type f | sort)
 chmod +x "$TARGET/scripts/setup-agent-tools.sh" 2>/dev/null || true
 chmod +x "$TARGET/install.sh" 2>/dev/null || true
 
+# Fuente del kit en repo: tools/agents-kit → .agents en el proyecto destino (mismo resultado que el CLI init)
+if [ -d "$TARGET/tools/agents-kit" ] && [ ! -f "$TARGET/.agents/AGENTS-CATALOG.md" ]; then
+  mkdir -p "$TARGET/.agents"
+  cp -R "$TARGET/tools/agents-kit/." "$TARGET/.agents/"
+  echo "installed: .agents (desde tools/agents-kit)"
+fi
+
 if [ -n "$TOOL" ]; then
   echo "Running tool setup: $TOOL"
   bash "$TARGET/scripts/setup-agent-tools.sh" "$TOOL"

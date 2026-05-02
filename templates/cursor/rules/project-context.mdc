@@ -15,5 +15,4 @@ Usa:
 - `docs/` para realidad del proyecto.
 - `wiki/` para metodo reutilizable.
 - `specs/` para features.
-- `.agents/` como fuente canonica de skills, comandos y subagentes.
-
+- `.agents/` como fuente canonica de skills, comandos y subagentes (tras instalar el kit con `init`).

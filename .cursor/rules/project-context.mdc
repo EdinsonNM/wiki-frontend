@@ -1,19 +1,21 @@
 ---
-description: Contexto gradual del proyecto y rutas de lectura para agentes Cursor.
+description: Contexto gradual del proyecto y rutas de lectura para agentes Cursor (repo frontend-agent-devkit).
 globs:
 alwaysApply: true
 ---
 
 # Project Context
 
-Sigue `AGENTS.md` como contrato principal.
+Este repositorio es el **paquete fuente** `frontend-agent-devkit`.
 
-No leas toda la documentacion. Lee `wiki/index.md`, clasifica la tarea y abre solo la ruta correspondiente.
+Sigue `AGENTS.md` como contrato principal para quien consuma el kit; para **editar el kit publicado**, la fuente está en **`tools/agents-kit/`** (agents, skills, commands, catálogo).
+
+No leas toda la documentación. Lee `wiki/index.md`, clasifica la tarea y abre solo la ruta correspondiente.
 
 Usa:
 
-- `docs/` para realidad del proyecto.
-- `wiki/` para metodo reutilizable.
-- `specs/` para features.
-- `.agents/` como fuente canonica de skills, comandos y subagentes.
-
+- `docs/` para realidad del proyecto (plantillas del starter).
+- `wiki/` para método reutilizable.
+- `specs/` para features de ejemplo.
+- **`tools/agents-kit/`** como fuente del catálogo que se copia a `.agents/` en proyectos que ejecutan `init`.
+- **`.cursor/skills/`** solo para tareas de mantenimiento de este repo (p. ej. publicación npm), no para duplicar `tools/agents-kit`.

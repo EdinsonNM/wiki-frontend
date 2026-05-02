@@ -1,0 +1,98 @@
+# Publica en npm cuando la versión en package.json es MAYOR que la de npm.
+# El mantenedor sube versión + CHANGELOG.md en main; este workflow no ejecuta npm version ni commits.
+#
+# Secretos: NPM_TOKEN. Tras publish exitoso empuja el tag vX.Y.Z si aún no existe en origin.
+
+name: Publish npm
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: npm-publish-${{ github.repository }}
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          registry-url: https://registry.npmjs.org
+
+      - name: Verify package
+        run: npm run verify
+
+      - name: Decide if publish needed (package.json vs registry)
+        id: decide
+        run: |
+          set -euo pipefail
+          NAME=$(node -p "require('./package.json').name")
+          PKG=$(node -p "require('./package.json').version")
+          REG=$(npm view "$NAME" version 2>/dev/null || true)
+
+          echo "name=$NAME" >> "$GITHUB_OUTPUT"
+          echo "pkg_version=$PKG" >> "$GITHUB_OUTPUT"
+          echo "registry_version=${REG:-}" >> "$GITHUB_OUTPUT"
+
+          if [ -z "${REG:-}" ]; then
+            echo "publish=true" >> "$GITHUB_OUTPUT"
+            echo "reason=first_publish" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          CMP=$(node -e "
+            const semverCmp = (a, b) => {
+              const pa = a.split('.').map(Number);
+              const pb = b.split('.').map(Number);
+              for (let i = 0; i < 3; i++) {
+                const da = pa[i] || 0, db = pb[i] || 0;
+                if (da > db) return 1;
+                if (da < db) return -1;
+              }
+              return 0;
+            };
+            process.stdout.write(String(semverCmp('$PKG', '$REG')));
+          ")
+          if [ "$CMP" = "1" ]; then
+            echo "publish=true" >> "$GITHUB_OUTPUT"
+            echo "reason=pkg_ahead_of_registry" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          if [ "$CMP" = "-1" ]; then
+            echo "::error::package.json ($PKG) es menor que npm ($REG). Corrige la versión en main."
+            exit 1
+          fi
+
+          echo "publish=false" >> "$GITHUB_OUTPUT"
+          echo "reason=pkg_equals_registry" >> "$GITHUB_OUTPUT"
+
+      - name: Publish to npm
+        if: steps.decide.outputs.publish == 'true'
+        run: npm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Push release tag
+        if: steps.decide.outputs.publish == 'true'
+        run: |
+          set -euo pipefail
+          VER=$(node -p "require('./package.json').version")
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git fetch origin --tags || true
+          if git ls-remote --tags origin | grep -q "refs/tags/v${VER}$"; then
+            echo "Tag v$VER ya existe en origin"
+            exit 0
+          fi
+          git tag "v${VER}"
+          git push origin "refs/tags/v${VER}"
