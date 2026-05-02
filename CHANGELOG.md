@@ -6,9 +6,15 @@ El formato sigue [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/) y e
 
 ## [Unreleased]
 
+## [1.2.0] - 2026-05-02
+
 ### Added
 
 - `init` / `setup`: si se omiten archivos por existir ya y no usaste `--force`, al final se muestra un recordatorio con el comando sugerido (incluye `--force`) para reemplazar por la copia del kit.
+
+### Changed
+
+- Wiki y `AGENTS.md`: alineación con la estrategia de librerías y arquitectura (`wiki/architecture/library-strategy.md` y documentos relacionados).
 
 ## [1.1.1] - 2026-05-02
 
