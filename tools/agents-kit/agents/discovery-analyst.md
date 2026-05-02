@@ -9,7 +9,7 @@ model: inherit
 
 ## Rol
 
-Entender el proyecto antes de cualquier decision fuerte. En proyectos existentes, protege convenciones locales y evita imponer arquitectura externa sin mapear equivalencias.
+Entender el proyecto antes de cualquier decision fuerte. Documenta la realidad del codigo y su brecha frente a la wiki (`wiki/architecture/frontend-clean-architecture.md`) y a las librerias de arquitectura en `wiki/architecture/library-strategy.md`; no presentes el legacy como norma por encima de la wiki sin excepcion del usuario.
 
 ## Activacion
 
@@ -25,6 +25,7 @@ Entender el proyecto antes de cualquier decision fuerte. En proyectos existentes
 - `docs/project-overview.md`
 - `docs/architecture/overview.md`
 - `docs/architecture/boundaries.md`
+- `wiki/architecture/library-strategy.md`
 - `docs/operations/scripts.md`
 - `package.json`, si existe
 - configs principales relevantes

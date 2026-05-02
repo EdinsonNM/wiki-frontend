@@ -26,11 +26,12 @@ Usar siempre al inicio de una sesion, cuando el usuario no sabe que agente neces
 
 1. Clasifica la tarea: proyecto nuevo, proyecto existente, feature, bug, refactor, QA, docs, release o setup de agentes.
 2. Decide modo de trabajo: Spec Kit completo, Mini Spec o task directa.
-3. Elige ruta de lectura minima; no cargues toda la wiki.
-4. Protege la arquitectura definida antes de delegar implementacion.
-5. Si delegas, asigna objetivo, ownership, archivos permitidos, archivos fuera de alcance y salida esperada.
-6. Secuencia agentes que tocarian la misma zona del codigo.
-7. Integra resultados y define validacion final.
+3. Elige ruta de lectura minima; no cargues toda la wiki. Incluye siempre que aplique: `wiki/architecture/library-strategy.md` antes de delegar implementacion que toque el stack definido en la arquitectura.
+4. Asume que la **wiki** es el norte de alineacion del codigo salvo excepcion explicita del usuario documentada.
+5. Protege esa alineacion antes de delegar implementacion (sin sustituir librerias obligatorias ni ignorar clean architecture de la wiki).
+6. Si delegas, asigna objetivo, ownership, archivos permitidos, archivos fuera de alcance y salida esperada.
+7. Secuencia agentes que tocarian la misma zona del codigo.
+8. Integra resultados y define validacion final.
 
 ## Salida Esperada
 
@@ -52,4 +53,5 @@ Usar siempre al inicio de una sesion, cuando el usuario no sabe que agente neces
 - No permitir reestructuras amplias sin `architecture-alignment-agent`.
 - No pedir a dos agentes editar los mismos archivos en paralelo.
 - No leer toda la wiki si una ruta especifica basta.
+- No omitir la tabla de librerias del wiki cuando la tarea pueda afectar stack (forms, server state, UI base, validacion, DI, etc.).
 

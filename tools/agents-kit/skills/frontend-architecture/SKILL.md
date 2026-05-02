@@ -1,6 +1,6 @@
 ---
 name: frontend-architecture
-description: Revisa o aplica la arquitectura frontend definida, respetando decisiones existentes y evitando reestructuras no aprobadas.
+description: Revisa o aplica la arquitectura objetivo de la wiki (capas y librerias acordadas), evitando reestructuras no aprobadas.
 ---
 
 # Frontend Architecture
@@ -13,25 +13,27 @@ description: Revisa o aplica la arquitectura frontend definida, respetando decis
 - `wiki/delivery/project-organization.md`
 - `wiki/architecture/frontend-strategy.md`
 - `wiki/architecture/frontend-clean-architecture.md`
-- `wiki/architecture/library-strategy.md`, si hay dependencias
+- `wiki/architecture/library-strategy.md`
 - `docs/architecture/overview.md`
 - `docs/architecture/boundaries.md`
 - `docs/architecture/decisions.md`
+- `docs/architecture/library-decisions.md`, si existe
 
 ## Workflow
 
-1. Detecta la arquitectura definida del proyecto y las decisiones ya documentadas.
-2. Mapea equivalencias entre la estructura local y la arquitectura base.
-3. Identifica si el cambio requiere mantener, alinear localmente o migrar gradualmente.
-4. Propone el cambio minimo que respete el scope.
-5. Actualiza `docs/architecture/decisions.md` solo si se aprueba una decision nueva.
+1. Detecta brecha entre codigo real y objetivo en `wiki/architecture/frontend-clean-architecture.md` mas decisiones en `docs/architecture/*`.
+2. Cruza necesidades de la tarea con las filas obligatorias de la tabla en `wiki/architecture/library-strategy.md`.
+3. Mapea equivalencias entre la estructura local y la arquitectura base.
+4. Identifica si el cambio requiere alinear localmente o migrar gradualmente hacia la wiki.
+5. Propone el cambio minimo que respete el scope.
+6. Actualiza `docs/architecture/decisions.md` solo si el usuario aprueba una excepcion nueva respecto a la wiki o a la tabla de librerias.
 
 ## Do Not
 
 - No redisenes todo el repo por defecto.
-- No introduzcas librerias sin justificar responsabilidad.
+- No introduzcas librerias que compitan con una fila obligatoria de la tabla del wiki sin decision explicita del usuario.
 - No muevas carpetas durante una feature salvo que el plan lo autorice.
-- No reemplaces convenciones locales por nombres del starter si ya existe una equivalencia clara.
+- No uses el codigo legacy como excusa para ignorar la wiki sin excepcion documentada.
 
 ## Output
 

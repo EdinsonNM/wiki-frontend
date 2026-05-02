@@ -1,6 +1,6 @@
 ---
 name: architecture-alignment
-description: Alinea un proyecto existente con la arquitectura frontend definida sin imponer reestructuras masivas.
+description: Alinea el proyecto hacia la wiki (clean architecture y tabla de librerias) sin reestructuras masivas no planificadas.
 ---
 
 # Architecture Alignment
@@ -10,6 +10,7 @@ description: Alinea un proyecto existente con la arquitectura frontend definida 
 - `AGENTS.md`
 - `wiki/delivery/architecture-alignment.md`
 - `wiki/architecture/frontend-clean-architecture.md`
+- `wiki/architecture/library-strategy.md`
 - `docs/architecture/overview.md`
 - `docs/architecture/boundaries.md`
 - `docs/architecture/decisions.md`

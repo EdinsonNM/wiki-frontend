@@ -79,12 +79,12 @@ El kit no es “documentación suelta”: está anclado en una **arquitectura fr
 
 ### Principio rector
 
-En `AGENTS.md` queda fijada la regla **“la arquitectura definida manda”**:
+En `AGENTS.md` queda fijada la regla **“la wiki es el objetivo de alineación”** (salvo excepción explícita del usuario):
 
-- **Proyectos nuevos**: la línea base está en `wiki/architecture/frontend-clean-architecture.md` (hub con lectura gradual: capas, dependencias, use cases, hooks, UI/design system, datos e integración).
-- **Proyectos ya existentes**: no se reescribe el repo para copiar la plantilla. Se **respeta** lo que ya está decidido, se documenta en `docs/architecture/overview.md` y `docs/architecture/boundaries.md`, y se **alinea por incrementos** con `wiki/delivery/architecture-alignment.md` cuando haga falta.
+- **Todos los proyectos**: la línea base está en `wiki/architecture/frontend-clean-architecture.md` (hub con lectura gradual: capas, dependencias, use cases, hooks, UI/design system, datos e integración). El código existente se **documenta** y se **acerca** a esa wiki por incrementos con `wiki/delivery/architecture-alignment.md`, no se preserva legado por encima de la wiki sin decisión escrita.
+- **Librerías**: la tabla en `wiki/architecture/library-strategy.md` forma parte de la arquitectura (no es solo recomendacion): cumplir filas obligatorias en cada alcance; las opcionales segun sus notas. Opcionalmente `docs/architecture/library-decisions.md` como espejo.
 
-Así el desarrollador **encamina** el código hacia límites claros (qué es dominio, qué es infraestructura, qué es presentación) sin obligar migraciones masivas en cada feature.
+Así el desarrollador **encamina** el código hacia límites claros y stack acordado sin migraciones masivas improvisadas en cada feature.
 
 ### Qué modelo de capas promueve
 
@@ -99,9 +99,9 @@ El arquetipo descrito en la wiki separa, entre otras cosas:
 
 La idea es que un agente pueda **tocar solo la zona afectada** (por ejemplo UI reusable vs contrato con API) leyendo el subdocumento que corresponda, no toda la wiki.
 
-### Tu proyecto como fuente de verdad
+### Tu proyecto como fuente de verdad operativa
 
-La wiki (`wiki/`) describe el **método y el objetivo arquitectónico**. Lo que manda en el día a día es lo que documentes en **`docs/architecture/`** (overview, límites entre capas, decisiones). Si esos archivos están vacíos o desactualizados, el kit espera que **discovery** y los agentes de arquitectura los completen **antes** de proponer carpetas nuevas o movidas.
+La wiki (`wiki/`) describe el **objetivo arquitectónico**, incluida la **tabla de librerías** en `library-strategy.md`. `docs/architecture/` describe el estado real del repo (overview, límites, decisiones y excepciones explícitas del usuario). Si esos docs están vacíos o desactualizados, **discovery** y los agentes de arquitectura deben completarlos **antes** de implementar o mover carpetas.
 
 ### Lectura mínima por tema (recordatorio)
 
@@ -113,7 +113,7 @@ wiki/delivery/project-organization.md
 wiki/delivery/architecture-alignment.md
 ```
 
-En proyectos nuevos, esa arquitectura es baseline. En existentes, respeta lo ya decidido y alinea por incrementos; no reestructures el repo solo para que calque la plantilla.
+En todos los proyectos esa arquitectura es el norte; alinea por incrementos. Las únicas desviaciones válidas son las que el usuario documenta como excepción.
 
 ---
 

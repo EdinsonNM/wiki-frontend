@@ -8,11 +8,13 @@ alwaysApply: true
 
 Sigue `AGENTS.md` como contrato principal.
 
+La wiki (`wiki/`) es el **objetivo de alineacion** del codigo salvo excepcion explicita del usuario. Las librerias listadas en `wiki/architecture/library-strategy.md` forman parte de la arquitectura: cumplelas al codificar (misma exigencia que las capas).
+
 No leas toda la documentacion. Lee `wiki/index.md`, clasifica la tarea y abre solo la ruta correspondiente.
 
 Usa:
 
 - `docs/` para realidad del proyecto.
-- `wiki/` para metodo reutilizable.
+- `wiki/` para metodo, arquitectura objetivo y tabla de librerias de arquitectura.
 - `specs/` para features.
 - `.agents/` como fuente canonica de skills, comandos y subagentes (tras instalar el kit con `init`).

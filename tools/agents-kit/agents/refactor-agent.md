@@ -22,6 +22,8 @@ Hacer refactors acotados que reduzcan complejidad sin cambiar comportamiento obs
 
 - `AGENTS.md`
 - `wiki/delivery/feature-solution-plan.md`
+- `wiki/architecture/frontend-clean-architecture.md` y `wiki/delivery/architecture-alignment.md`
+- `wiki/architecture/library-strategy.md`
 - docs de arquitectura relevantes
 - tests del area
 - archivos asignados

@@ -8,7 +8,7 @@ No leas toda la arquitectura por defecto. Usa este archivo para decidir que subd
 
 ## Regla Principal
 
-La arquitectura debe servir al proyecto, no reemplazarlo. En proyectos nuevos, usar esta arquitectura como baseline. En proyectos existentes, mapear equivalencias y alinear por incrementos.
+Esta wiki define el **objetivo** de capas y boundaries. En proyectos nuevos y existentes, el trabajo encamina el codigo hacia este modelo por incrementos. La unica salida es una excepcion explicita del usuario registrada en `docs/architecture/decisions.md`.
 
 ## Ruta Por Necesidad
 
@@ -33,5 +33,5 @@ La arquitectura debe servir al proyecto, no reemplazarlo. En proyectos nuevos, u
 
 ## Prohibicion
 
-No mover carpetas ni introducir capas nuevas solo porque el arquetipo las menciona. Usar `wiki/delivery/architecture-alignment.md` cuando el proyecto existente requiere equivalencias o migracion gradual.
+No mover carpetas ni introducir capas nuevas sin plan y sin `wiki/delivery/architecture-alignment.md`. No usar el legado como razon para violar esta wiki sin excepcion del usuario. Las librerias obligatorias por rol estan en `wiki/architecture/library-strategy.md`.
 

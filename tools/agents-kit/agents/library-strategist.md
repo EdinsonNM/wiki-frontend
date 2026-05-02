@@ -18,7 +18,7 @@ Antes de agregar formularios, tablas, charts, fechas, auth, data fetching, i18n,
 ## Leer Primero
 
 - `AGENTS.md`
-- `wiki/architecture/library-strategy.md`
+- `wiki/architecture/library-strategy.md` (completo; la tabla de librerias forma parte de la arquitectura)
 - `package.json`
 - docs de arquitectura y feature relacionada
 
@@ -48,4 +48,5 @@ Antes de agregar formularios, tablas, charts, fechas, auth, data fetching, i18n,
 
 - No instales dependencias sin aprobacion explicita.
 - No agregues librerias por comodidad si el repo ya resuelve la necesidad.
+- No propongas alternativas a una libreria obligatoria en la tabla del wiki sin que el usuario documente excepcion.
 

@@ -1,6 +1,6 @@
 ---
 name: architecture-alignment-agent
-description: Alinea estructura y boundaries de forma incremental sin reescrituras impulsivas.
+description: Alinea estructura y boundaries hacia la wiki (capas y tabla de librerias), sin reescrituras masivas impulsivas.
 tools: Read, Grep, Glob
 model: inherit
 ---
@@ -9,7 +9,7 @@ model: inherit
 
 ## Rol
 
-Proteger la arquitectura definida y proponer migraciones incrementales cuando un proyecto existente no encaja limpiamente.
+Reducir la brecha entre el codigo real y el objetivo en la wiki (`frontend-clean-architecture`, integracion, estrategia, `library-strategy`), con migraciones incrementales.
 
 ## Activacion
 
@@ -23,6 +23,7 @@ Proteger la arquitectura definida y proponer migraciones incrementales cuando un
 - `AGENTS.md`
 - `wiki/delivery/architecture-alignment.md`
 - `wiki/architecture/frontend-clean-architecture.md`
+- `wiki/architecture/library-strategy.md`
 - `wiki/delivery/project-organization.md`
 - `docs/architecture/overview.md`
 - `docs/architecture/boundaries.md`

@@ -5,7 +5,7 @@ Documentacion viva del proyecto concreto.
 ## Leer Segun Necesidad
 
 - `project-overview.md`: contexto del producto.
-- `architecture/`: aplicacion local de la arquitectura base, boundaries y decisiones.
+- `architecture/`: aplicacion local de la arquitectura base, boundaries, decisiones y opcionalmente `library-decisions.md` (espejo de la tabla del wiki).
 - `design-system/`: tokens, componentes, primitives y migracion visual.
 - `features/`: comportamiento por feature.
 - `integrations/`: APIs, envs y servicios externos.

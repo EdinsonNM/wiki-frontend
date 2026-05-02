@@ -2,16 +2,16 @@
 
 ## Objetivo
 
-Alinear un proyecto existente sin borrar su historia ni imponer una plantilla generica.
+Reducir la brecha entre el codigo real y lo definido en la **wiki** (`wiki/architecture/frontend-clean-architecture.md`, estrategia, integracion y la tabla de librerias en `wiki/architecture/library-strategy.md`), sin reescrituras masivas en una sola tarea.
 
-La arquitectura objetivo sirve como referencia, no como orden de reescritura.
+La wiki es el norte de alineacion salvo excepcion explicita del usuario documentada.
 
 ## Principio
 
 ```text
-Primero documentar lo real.
+Primero documentar lo real y la brecha vs wiki.
 Luego detectar riesgos.
-Despues proponer el cambio minimo.
+Despues proponer el cambio minimo que acerca al objetivo.
 ```
 
 ## Cuando Usar
@@ -25,6 +25,7 @@ Despues proponer el cambio minimo.
 ## Lectura Minima
 
 - `AGENTS.md`
+- `wiki/architecture/library-strategy.md`
 - `docs/architecture/overview.md`
 - `docs/architecture/boundaries.md`
 - `docs/architecture/decisions.md`
@@ -62,7 +63,7 @@ Despues proponer el cambio minimo.
 
 ### Mantener
 
-Usar cuando la arquitectura actual funciona y el cambio no requiere nuevas capas.
+Usar cuando la estructura local ya equivale a la wiki para esa zona y el cambio no requiere nuevas capas. No usar "mantener" como excusa para ignorar la tabla de librerias del wiki sin excepcion del usuario.
 
 ### Alinear Localmente
 
@@ -78,8 +79,8 @@ Solo si no existe una convencion local o la existente bloquea la entrega. Docume
 
 ## Prohibiciones
 
-- No mover todo `src/` para ajustarlo al arquetipo.
+- No mover todo `src/` para ajustarlo al arquetipo en un solo PR sin plan.
 - No renombrar carpetas compartidas sin revisar imports y tests.
-- No crear `core/domains/infra/presentation` si el proyecto usa otra estructura valida y suficiente.
+- No ignorar la wiki ni la tabla de librerias de arquitectura para preservar atajos legacy sin excepcion documentada.
 - No mezclar refactor arquitectonico con feature sin criterio de salida.
 - No convertir una mejora pequena en migracion global.

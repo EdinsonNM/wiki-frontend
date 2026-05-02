@@ -79,7 +79,7 @@ En proyectos nuevos, revisar librerias antes de codificar. El plan debe confirma
 - Librerias descartadas y motivo.
 - Impacto en bundle, testing, accesibilidad o mantenimiento.
 
-En proyectos existentes, revisar el stack actual primero y evitar introducir dependencias si una convencion local ya resuelve el problema.
+En proyectos existentes, revisar la tabla de librerias en `wiki/architecture/library-strategy.md`: lo obligatorio para cada alcance manda sobre convenciones legacy; solo una excepcion explicita del usuario en `docs/architecture/decisions.md` permite sustituirlo.
 
 ## Tasks
 

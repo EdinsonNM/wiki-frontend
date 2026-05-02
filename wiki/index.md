@@ -15,7 +15,7 @@ Catalogo vivo de la wiki frontend template. Leer este archivo primero antes de r
 
 - [Estrategia Frontend](architecture/frontend-strategy.md): como decidir stack, alcance, riesgos, convenciones y tradeoffs para cualquier frontend.
 - [Clean Architecture Frontend](architecture/frontend-clean-architecture.md): hub de lectura gradual para capas, dependencias, responsabilidades, escalas, datos, hooks y UI.
-- [Estrategia De Librerias](architecture/library-strategy.md): criterios para elegir dependencias por responsabilidad.
+- [Estrategia De Librerias](architecture/library-strategy.md): criterios y tabla de librerias de arquitectura (parte del contrato al tocar stack).
 - [Integracion Frontend](architecture/frontend-integration.md): contratos con APIs, mocks, adapters, variables de entorno y boundaries sin asumir dominio.
 
 ## Delivery

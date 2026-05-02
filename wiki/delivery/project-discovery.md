@@ -85,4 +85,4 @@ Crear o actualizar una nota con:
 
 ## Regla
 
-No crear arquitectura antes de entender el proyecto. En proyectos existentes, respetar convenciones locales salvo que sean una fuente clara de bugs o bloqueo.
+No crear arquitectura nueva antes de entender el proyecto. En proyectos existentes, documentar convenciones locales y su brecha frente a la wiki y a la tabla de librerias en `wiki/architecture/library-strategy.md`; la alineacion objetivo sigue siendo la wiki salvo excepcion explicita del usuario.

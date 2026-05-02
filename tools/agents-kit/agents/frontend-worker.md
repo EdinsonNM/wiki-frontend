@@ -19,7 +19,10 @@ Cuando existe spec, Mini Spec o task directa aprobada.
 
 - `AGENTS.md`
 - spec/Mini Spec/task
+- `wiki/architecture/library-strategy.md`, si la tarea toca stack o nuevas dependencias
+- `wiki/architecture/frontend-clean-architecture.md` (hub o subdocumento del area)
 - `docs/architecture/boundaries.md`
+- `docs/architecture/library-decisions.md`, si existe
 - docs de feature relacionadas
 - archivos asignados
 
@@ -50,4 +53,5 @@ Cuando existe spec, Mini Spec o task directa aprobada.
 - No crear carpetas de arquitectura nuevas sin plan.
 - No mezclar feature con refactor global.
 - No tocar archivos fuera del ownership asignado.
+- No sustituir librerias ya fijadas en la tabla de arquitectura del wiki sin excepcion explicita del usuario.
 

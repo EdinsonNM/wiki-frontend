@@ -67,7 +67,7 @@ Debe responder preguntas como:
 
 Responsable de entender el proyecto antes de cualquier decision fuerte. Lee estructura, scripts, stack, documentacion, convenciones, riesgos y restricciones.
 
-En proyectos nuevos, ayuda a convertir una idea en contexto inicial. En proyectos existentes, evita imponer una arquitectura externa sin respetar patrones locales.
+En proyectos nuevos, ayuda a convertir una idea en contexto inicial. En proyectos existentes, documenta patrones locales y su brecha frente a la wiki; la alineacion objetivo sigue siendo la wiki salvo excepcion explicita del usuario.
 
 ### Solution Planner
 
