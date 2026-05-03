@@ -6,6 +6,16 @@ El formato sigue [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/) y e
 
 ## [Unreleased]
 
+## [1.4.0] - 2026-05-03
+
+### Added
+
+- Soporte para **OpenCode** en el CLI (`--tool opencode`). Genera la estructura `.opencode/agents`, `.opencode/skills` y `.opencode/commands`.
+- Documentación para la herramienta OpenCode en el `README.md` y en `wiki/delivery/tool-compatibility.md`.
+
+### Changed
+
+- Se modificó el encabezado (frontmatter YAML) de todos los agentes en `tools/agents-kit/agents/` para incluir `mode: subagent`, `model: inherit`, `temperature: 0.1` y la lista de herramientas deshabilitadas (`write`, `edit`, `bash`), unificando el formato para el orquestador y los subagentes.
 ## [1.3.0] - 2026-05-02
 
 ### Added
