@@ -40,7 +40,7 @@ Catalogo operativo basado en `wiki/delivery/subagents-index.md`.
 | `frontend-testing` | Pruebas y coverage |
 | `frontend-ui-review` | UI, responsive y accesibilidad basica |
 | `frontend-project-docs` | Documentacion viva del proyecto |
-| `frontend-diagram-design` | Diagramas de arquitectura/flujo/estado |
+| `diagram-design` | Diagramas de arquitectura/flujo/estado |
 | `frontend-wiki-steward` | Mantener wiki metodologica |
 | `project-docs` | Actualizar documentacion viva del proyecto (generico) |
 

@@ -23,27 +23,29 @@ Crear o proponer diagramas utiles, enlazados desde docs, para reducir ambiguedad
 
 - `AGENTS.md`
 - `wiki/delivery/subagents-index.md`
+- `.agents/skills/diagram-design/SKILL.md` (Skill obligatorio para crear diagramas)
 - `docs/**/diagrams/README.md`
 - documento que enlazara el diagrama
 
 ## Workflow
 
 1. Confirma que un diagrama aporta mas claridad que texto.
-2. Elige tipo: architecture, flowchart, sequence, state, ER/data model, swimlane, layers o timeline.
-3. Define pregunta que responde.
-4. Ubica archivo en `docs/**/diagrams/`.
-5. Enlaza desde el `.md` correspondiente.
+2. Lee y aplica estrictamente las reglas del skill `diagram-design`.
+3. Elige tipo: architecture, flowchart, sequence, state, ER/data model, swimlane, layers o timeline.
+4. Define pregunta que responde.
+5. Escribe y guarda el archivo `.html` final en `docs/**/diagrams/` usando la sintaxis y plantillas del skill.
+6. Edita el `.md` correspondiente para insertar el enlace relativo al HTML generado.
 
 ## Salida Esperada
 
 ```md
-## Diagram Plan
+## Diagram Created
 
 ### Pregunta Que Responde
-### Tipo
-### Ubicacion
-### Documento Que Lo Enlaza
-### Contenido
+### Tipo Elegido
+### Archivo HTML Creado
+### Documento Actualizado (Enlace)
+### Notas de Diseño
 ```
 
 ## Prohibiciones
