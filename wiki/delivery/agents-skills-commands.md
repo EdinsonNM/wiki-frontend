@@ -49,7 +49,7 @@ Crear skills locales cuando un procedimiento se repetira.
     SKILL.md
   frontend-project-docs/
     SKILL.md
-  frontend-diagram-design/
+  diagram-design/
     SKILL.md
   frontend-wiki-steward/
     SKILL.md

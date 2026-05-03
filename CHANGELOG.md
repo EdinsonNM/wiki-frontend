@@ -6,6 +6,13 @@ El formato sigue [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/) y e
 
 ## [Unreleased]
 
+## [1.3.0] - 2026-05-02
+
+### Added
+
+- Skill `diagram-design` para generar diagramas HTML independientes.
+- Agente `diagram-documentation-agent` modificado para usar el skill `diagram-design` y requerir la generación del archivo HTML resultante.
+
 ## [1.2.0] - 2026-05-02
 
 ### Added
