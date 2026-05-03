@@ -1,8 +1,12 @@
 ---
-name: design-system-agent
 description: Mantiene tokens, primitives, componentes base y coherencia visual.
-tools: Read, Grep, Glob
+mode: subagent
 model: inherit
+temperature: 0.1
+tools:
+  write: false
+  edit: false
+  bash: false
 ---
 
 # Design System Agent

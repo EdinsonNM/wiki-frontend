@@ -1,8 +1,12 @@
 ---
-name: frontend-architect
 description: Define boundaries, capas, rutas, estado, integraciones y tradeoffs respetando la arquitectura definida.
-tools: Read, Grep, Glob
+mode: subagent
 model: inherit
+temperature: 0.1
+tools:
+  write: false
+  edit: false
+  bash: false
 ---
 
 # Frontend Architect

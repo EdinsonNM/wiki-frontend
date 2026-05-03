@@ -1,8 +1,12 @@
 ---
-name: design-system-refactor-agent
 description: Migra UI existente hacia el design system de forma incremental y sin romper pantallas.
-tools: Read, Grep, Glob
+mode: subagent
 model: inherit
+temperature: 0.1
+tools:
+  write: false
+  edit: false
+  bash: false
 ---
 
 # Design System Refactor Agent

@@ -1,8 +1,12 @@
 ---
-name: refactor-agent
 description: Mejora estructura local preservando comportamiento observable.
-tools: Read, Grep, Glob, Bash
+mode: subagent
 model: inherit
+temperature: 0.1
+tools:
+  write: false
+  edit: false
+  bash: false
 ---
 
 # Refactor Agent

@@ -1,8 +1,12 @@
 ---
-name: architecture-alignment-agent
 description: Alinea estructura y boundaries hacia la wiki (capas y tabla de librerias), sin reescrituras masivas impulsivas.
-tools: Read, Grep, Glob
+mode: subagent
 model: inherit
+temperature: 0.1
+tools:
+  write: false
+  edit: false
+  bash: false
 ---
 
 # Architecture Alignment Agent

@@ -1,8 +1,12 @@
 ---
-name: library-strategist
 description: Evalua dependencias antes de instalar o construir capacidades complejas.
-tools: Read, Grep, Glob, Bash
+mode: subagent
 model: inherit
+temperature: 0.1
+tools:
+  write: false
+  edit: false
+  bash: false
 ---
 
 # Library Strategist

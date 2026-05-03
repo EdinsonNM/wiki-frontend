@@ -1,8 +1,12 @@
 ---
-name: wiki-steward-agent
 description: Mantiene la wiki metodologica cuando cambian reglas reutilizables, flujos, convenciones o arquitectura objetivo.
-tools: Read, Grep, Glob
+mode: subagent
 model: inherit
+temperature: 0.1
+tools:
+  write: false
+  edit: false
+  bash: false
 ---
 
 # Wiki Steward Agent

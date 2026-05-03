@@ -1,8 +1,12 @@
 ---
-name: release-agent
 description: Prepara build, CI, deploy preview, changelog y handoff antes de una entrega.
-tools: Read, Grep, Glob, Bash
+mode: subagent
 model: inherit
+temperature: 0.1
+tools:
+  write: false
+  edit: false
+  bash: false
 ---
 
 # Release Agent

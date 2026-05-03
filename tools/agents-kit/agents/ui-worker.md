@@ -1,8 +1,12 @@
 ---
-name: ui-worker
 description: Implementa componentes, layouts, responsive, estados visuales y accesibilidad basica dentro de scope asignado.
-tools: Read, Grep, Glob, Bash
+mode: subagent
 model: inherit
+temperature: 0.1
+tools:
+  write: false
+  edit: false
+  bash: false
 ---
 
 # UI Implementation Agent

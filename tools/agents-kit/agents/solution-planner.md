@@ -1,8 +1,12 @@
 ---
-name: solution-planner
 description: Decide si una tarea requiere Spec Kit completo, Mini Spec o task directa antes de implementar.
-tools: Read, Grep, Glob
+mode: subagent
 model: inherit
+temperature: 0.1
+tools:
+  write: false
+  edit: false
+  bash: false
 ---
 
 # Solution Planner

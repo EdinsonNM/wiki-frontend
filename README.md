@@ -1,6 +1,6 @@
 # frontend-agent-devkit
 
-**Copia en la raíz de tu proyecto frontend** una capa de trabajo para asistentes de IA: método documentado (`wiki/`), plantillas para tu documentación viva (`docs/`, `specs/`), un contrato local (`AGENTS.md`) y un catálogo de **subagentes, skills y comandos** que el paquete lleva en **`tools/agents-kit/`** y que **`init`** deja en **`.agents/`** en tu repo (mismo comportamiento que antes). El CLI puede además generar las carpetas que esperan Cursor, Claude Code, Codex o Antigravity.
+**Copia en la raíz de tu proyecto frontend** una capa de trabajo para asistentes de IA: método documentado (`wiki/`), plantillas para tu documentación viva (`docs/`, `specs/`), un contrato local (`AGENTS.md`) y un catálogo de **subagentes, skills y comandos** que el paquete lleva en **`tools/agents-kit/`** y que **`init`** deja en **`.agents/`** en tu repo (mismo comportamiento que antes). El CLI puede además generar las carpetas que esperan Cursor, Claude Code, Codex, Antigravity u OpenCode.
 
 No es un framework de UI ni un generador de apps: **no reemplaza tu código**. Es una forma de que los agentes **lean en orden**, **no contradigan la arquitectura** que tú defines y **reutilicen los mismos flujos** (discovery, specs, QA, docs) en cada repo.
 
@@ -219,6 +219,7 @@ npx frontend-agent-devkit init
 npx frontend-agent-devkit init --tool cursor
 npx frontend-agent-devkit init --tool claude
 npx frontend-agent-devkit init --tool codex
+npx frontend-agent-devkit init --tool opencode
 npx frontend-agent-devkit init --tool all
 ```
 
@@ -232,8 +233,8 @@ frontend-agent-devkit init --tool cursor
 Comandos disponibles:
 
 ```bash
-frontend-agent-devkit init [--tool codex|cursor|claude|antigravity|all] [--force]
-frontend-agent-devkit setup --tool codex|cursor|claude|antigravity|all [--force]
+frontend-agent-devkit init [--tool codex|cursor|claude|antigravity|opencode|all] [--force]
+frontend-agent-devkit setup --tool codex|cursor|claude|antigravity|opencode|all [--force]
 frontend-agent-devkit verify
 frontend-agent-devkit help
 ```
@@ -249,6 +250,7 @@ Codex       -> usa AGENTS.md y .agents/*; agentes en .codex/agents (desde .agent
 Cursor      -> .cursor/rules, .cursor/commands, .cursor/skills, .cursor/agents
 Claude Code -> .claude/agents, .claude/skills, .claude/commands (agentes desde .agents/agents)
 Antigravity -> .agent/rules, .agent/workflows, AGENTS.md, GEMINI.md
+OpenCode    -> .opencode/agents, .opencode/skills, .opencode/commands
 ```
 
 El catálogo de agentes, skills y comandos vive en:
@@ -287,6 +289,7 @@ Valores esperados:
 - Cursor
 - Claude Code
 - Antigravity
+- OpenCode
 
 Antigravity cambia rápido; valida en tu versión instalada si reconoce `.agent/rules` y `.agent/workflows`. `AGENTS.md` y `GEMINI.md` quedan como fallback conservador.
 
@@ -316,7 +319,7 @@ Si además quieres refrescar los adaptadores del IDE:
 npx frontend-agent-devkit init --tool cursor --force
 ```
 
-(sustituye `cursor` por `claude`, `codex`, `antigravity` o `all` según tu caso). Lo mismo aplica a **`setup`**: `npx frontend-agent-devkit setup --tool cursor --force` cuando solo quieras regenerar carpetas del IDE.
+(sustituye `cursor` por `claude`, `codex`, `antigravity`, `opencode` o `all` según tu caso). Lo mismo aplica a **`setup`**: `npx frontend-agent-devkit setup --tool cursor --force` cuando solo quieras regenerar carpetas del IDE.
 
 ### Publicar una nueva versión en npm (mantenedores del paquete)
 

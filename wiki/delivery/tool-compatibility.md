@@ -45,3 +45,9 @@ Referencia comunitaria consultada:
 
 - https://antigravity.im/documentation
 
+## OpenCode
+
+- Project skills: `.opencode/skills/`
+- Project subagents: `.opencode/agents/`
+- Project commands: `.opencode/commands/`
+- El setup copia la estructura base para permitir compatibilidad.

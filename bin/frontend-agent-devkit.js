@@ -6,7 +6,7 @@ const path = require('path');
 
 const ROOT = path.resolve(__dirname, '..');
 const CWD = process.cwd();
-const VALID_TOOLS = new Set(['codex', 'cursor', 'claude', 'claude-code', 'antigravity', 'all']);
+const VALID_TOOLS = new Set(['codex', 'cursor', 'claude', 'claude-code', 'antigravity', 'opencode', 'all']);
 
 const TOOLS_AGENTS_KIT = path.join(ROOT, 'tools', 'agents-kit');
 
@@ -28,8 +28,8 @@ function usage() {
   console.log(`frontend-agent-devkit
 
 Usage:
-  frontend-agent-devkit init [--tool codex|cursor|claude|antigravity|all] [--force]
-  frontend-agent-devkit setup --tool codex|cursor|claude|antigravity|all [--force]
+  frontend-agent-devkit init [--tool codex|cursor|claude|antigravity|opencode|all] [--force]
+  frontend-agent-devkit setup --tool codex|cursor|claude|antigravity|opencode|all [--force]
   frontend-agent-devkit verify
   frontend-agent-devkit help
 
@@ -184,6 +184,7 @@ function setup(tool, options) {
     setup('cursor', options);
     setup('claude', options);
     setup('antigravity', options);
+    setup('opencode', options);
     return;
   }
 
@@ -244,6 +245,17 @@ function setup(tool, options) {
     copyDirFiles(path.join(src, 'commands'), path.join(CWD, '.agent', 'workflows'), options);
     copyPath(path.join(src, 'AGENTS-CATALOG.md'), path.join(CWD, '.agent', 'AGENTS-CATALOG.md'), options);
     console.log('note: Antigravity paths can vary by version. Verify .agent/rules and .agent/workflows in the IDE.');
+  }
+
+  if (tool === 'opencode') {
+    console.log('== OpenCode ==');
+    copyDirFiles(path.join(src, 'agents'), path.join(CWD, '.opencode', 'agents'), options);
+    copyDirFiles(path.join(src, 'skills'), path.join(CWD, '.opencode', 'skills'), options);
+    copyDirFiles(path.join(src, 'commands'), path.join(CWD, '.opencode', 'commands'), options);
+    copyPath(path.join(src, 'AGENTS-CATALOG.md'), path.join(CWD, '.opencode', 'AGENTS-CATALOG.md'), options);
+    console.log('ready: .opencode/agents');
+    console.log('ready: .opencode/skills');
+    console.log('ready: .opencode/commands');
   }
 }
 

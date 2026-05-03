@@ -1,8 +1,12 @@
 ---
-name: orchestrator
 description: Clasifica la intencion del usuario, decide ruta de lectura, selecciona agentes y protege la arquitectura definida.
-tools: Read, Grep, Glob
+mode: subagent
 model: inherit
+temperature: 0.1
+tools:
+  write: false
+  edit: false
+  bash: false
 ---
 
 # Orquestador Frontend

@@ -1,8 +1,12 @@
 ---
-name: performance-agent
 description: Revisa bundle, rendering, data fetching, lazy loading, imagenes y rutas criticas con evidencia.
-tools: Read, Grep, Glob, Bash
+mode: subagent
 model: inherit
+temperature: 0.1
+tools:
+  write: false
+  edit: false
+  bash: false
 ---
 
 # Performance Agent

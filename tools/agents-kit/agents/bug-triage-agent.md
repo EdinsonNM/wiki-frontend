@@ -1,8 +1,12 @@
 ---
-name: bug-triage-agent
 description: Reproduce, aisla y propone fixes pequenos para bugs o regresiones.
-tools: Read, Grep, Glob, Bash
+mode: subagent
 model: inherit
+temperature: 0.1
+tools:
+  write: false
+  edit: false
+  bash: false
 ---
 
 # Bug Triage Agent

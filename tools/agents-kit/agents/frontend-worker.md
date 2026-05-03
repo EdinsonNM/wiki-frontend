@@ -1,8 +1,12 @@
 ---
-name: frontend-worker
 description: Implementa comportamiento frontend, estado, formularios, rutas y flujos con scope definido.
-tools: Read, Grep, Glob, Bash
+mode: subagent
 model: inherit
+temperature: 0.1
+tools:
+  write: false
+  edit: false
+  bash: false
 ---
 
 # Frontend Feature Agent

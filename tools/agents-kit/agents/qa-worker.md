@@ -1,8 +1,12 @@
 ---
-name: qa-worker
 description: Revisa tests, coverage, accesibilidad, estados UI y regresiones antes del cierre.
-tools: Read, Grep, Glob, Bash
+mode: subagent
 model: inherit
+temperature: 0.1
+tools:
+  write: false
+  edit: false
+  bash: false
 ---
 
 # QA Agent

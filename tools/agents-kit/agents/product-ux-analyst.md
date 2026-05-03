@@ -1,8 +1,12 @@
 ---
-name: product-ux-analyst
 description: Aclara usuarios, flujos, estados UI y criterios de aceptacion cuando la intencion es ambigua.
-tools: Read, Grep, Glob
+mode: subagent
 model: inherit
+temperature: 0.1
+tools:
+  write: false
+  edit: false
+  bash: false
 ---
 
 # Product UX Analyst

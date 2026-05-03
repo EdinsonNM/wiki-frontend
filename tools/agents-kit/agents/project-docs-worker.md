@@ -1,8 +1,12 @@
 ---
-name: project-docs-worker
 description: Actualiza documentacion viva del proyecto con base en cambios reales.
-tools: Read, Grep, Glob
+mode: subagent
 model: inherit
+temperature: 0.1
+tools:
+  write: false
+  edit: false
+  bash: false
 ---
 
 # Project Docs Agent

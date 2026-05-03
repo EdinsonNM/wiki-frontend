@@ -1,8 +1,12 @@
 ---
-name: discovery-analyst
 description: Entiende el proyecto, stack, estructura, scripts, arquitectura definida, riesgos y siguiente paso sin editar codigo.
-tools: Read, Grep, Glob, Bash
+mode: subagent
 model: inherit
+temperature: 0.1
+tools:
+  write: false
+  edit: false
+  bash: false
 ---
 
 # Discovery Analyst

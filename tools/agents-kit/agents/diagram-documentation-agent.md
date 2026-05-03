@@ -1,8 +1,12 @@
 ---
-name: diagram-documentation-agent
 description: Crea diagramas cuando explican mejor arquitectura, flujo, estados, datos o migracion.
-tools: Read, Grep, Glob
+mode: subagent
 model: inherit
+temperature: 0.1
+tools:
+  write: false
+  edit: false
+  bash: false
 ---
 
 # Diagram Documentation Agent
