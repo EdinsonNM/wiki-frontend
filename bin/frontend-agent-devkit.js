@@ -6,7 +6,7 @@ const path = require('path');
 
 const ROOT = path.resolve(__dirname, '..');
 const CWD = process.cwd();
-const VALID_TOOLS = new Set(['codex', 'cursor', 'claude', 'claude-code', 'antigravity', 'opencode', 'all']);
+const VALID_TOOLS = new Set(['codex', 'cursor', 'claude', 'claude-code', 'antigravity', 'opencode', 'copilot', 'all']);
 
 const TOOLS_AGENTS_KIT = path.join(ROOT, 'tools', 'agents-kit');
 
@@ -28,8 +28,8 @@ function usage() {
   console.log(`frontend-agent-devkit
 
 Usage:
-  frontend-agent-devkit init [--tool codex|cursor|claude|antigravity|opencode|all] [--force]
-  frontend-agent-devkit setup --tool codex|cursor|claude|antigravity|opencode|all [--force]
+  frontend-agent-devkit init [--tool codex|cursor|claude|antigravity|opencode|copilot|all] [--force]
+  frontend-agent-devkit setup --tool codex|cursor|claude|antigravity|opencode|copilot|all [--force]
   frontend-agent-devkit verify
   frontend-agent-devkit help
 
@@ -185,6 +185,7 @@ function setup(tool, options) {
     setup('claude', options);
     setup('antigravity', options);
     setup('opencode', options);
+    setup('copilot', options);
     return;
   }
 
@@ -194,6 +195,13 @@ function setup(tool, options) {
   }
 
   const src = agentsSourceForSetup();
+
+  if (tool === 'copilot') {
+    console.log('== GitHub Copilot ==');
+    copyDirFiles(path.join(src, 'github-copilot', '.github'), path.join(CWD, '.github'), options);
+    console.log('ready: .github (copilot-instructions.md)');
+    return;
+  }
 
   if (tool === 'codex') {
     console.log('== Codex ==');
