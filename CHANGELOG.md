@@ -6,6 +6,17 @@ El formato sigue [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/) y e
 
 ## [Unreleased]
 
+## [1.6.0] - 2026-05-07
+
+### Added
+
+- Soporte para **GitHub Copilot**: `init` / `setup --tool copilot` copian el adaptador a `.github/` (p. ej. `copilot-instructions.md`); fallback al kit empaquetado si falta en `.agents`.
+- `scripts/setup-agent-tools.sh` y `install.sh`: herramientas `copilot` y `opencode`; `all` incluye ambas alineado con el CLI.
+
+### Changed
+
+- Documentación (`README`, comando `setup-agent-tools`, skill `agent-setup`, `wiki/delivery/tool-compatibility`) para Copilot y OpenCode en el script bash.
+
 ## [1.5.0] - 2026-05-04
 ## [1.4.0] - 2026-05-03
 

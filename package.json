@@ -1,6 +1,6 @@
 {
   "name": "frontend-agent-devkit",
-  "version": "1.5.0",
+  "version": "1.6.0",
   "description": "Portable frontend wiki starter with agents, skills, commands, specs and IDE setup.",
   "license": "MIT",
   "type": "commonjs",
