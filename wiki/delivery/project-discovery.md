@@ -24,6 +24,7 @@ Entender un proyecto frontend antes de planificar o tocar codigo. Aplica tanto a
 - Estado de build/lint.
 - Design system o libreria UI.
 - Integraciones activas.
+- **Fuentes de datos:** que sistemas alimentan el frontend (REST, GraphQL, BaaS, CMS, auth SaaS, mixto). Si no esta escrito en `docs/integrations/api.md`, completarlo en discovery o **preguntar** antes de asumir.
 - Deuda tecnica visible.
 
 ### Restricciones
@@ -79,6 +80,10 @@ Crear o actualizar una nota con:
 ## Riesgos
 
 ## Decisiones Pendientes
+
+## Fuentes De Datos (Referencia En Docs)
+
+- Lista de origenes (propios / terceros / mixtos) y si estan reflejados en `docs/integrations/api.md` y `environment.md`.
 
 ## Siguiente Paso Recomendado
 ```

@@ -34,12 +34,13 @@ Aislar integraciones externas para que UI y dominio no dependan directamente de 
 
 ## Workflow
 
-1. Identifica fuente de datos y contrato.
-2. Ubica client, service, adapter, mapper o hook segun boundaries.
-3. Define manejo de loading, error, empty y success.
-4. Agrega mocks/fixtures si aplica.
-5. Actualiza env/docs si cambia configuracion.
-6. Ejecuta tests o validacion manual relevante.
+1. Lee `docs/integrations/api.md`: si la tabla de fuentes no refleja la realidad o hay huecos, **actualiza la doc** o **pregunta** al usuario que origenes existen (incluido esquema mixto).
+2. Identifica fuente de datos y contrato (**API propia, GraphQL, BaaS como Supabase u otro**); no asumir un proveedor si el proyecto no lo define en docs.
+3. Ubica client, service, adapter, mapper o hook segun boundaries; con varias fuentes, **un boundary por origen** en `infra/`, sin saltarse capas.
+4. Define manejo de loading, error, empty y success.
+5. Agrega mocks/fixtures si aplica.
+6. Actualiza `docs/integrations/environment.md` junto con `api.md` si cambia configuracion o se anade un origen.
+7. Ejecuta tests o validacion manual relevante.
 
 ## Salida Esperada
 

@@ -94,6 +94,8 @@ Ruta minima:
 - `docs/integrations/environment.md`
 - contratos o clients relacionados
 
+En proyectos existentes, mantener esos docs como referencia viva (tabla de fuentes en `api.md`); si falta informacion sobre origenes de datos (incluido esquema mixto), preguntar antes de asumir. Las capas de la wiki no cambian por tener varias fuentes.
+
 ### Testing
 
 - `wiki/delivery/testing-and-coverage.md`

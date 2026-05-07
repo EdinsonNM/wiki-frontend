@@ -39,6 +39,7 @@ Despues proponer el cambio minimo que acerca al objetivo.
 - Donde viven paginas/rutas.
 - Donde viven componentes base y compartidos.
 - Donde viven llamadas API o clients.
+- Coincidencia entre fuentes de datos reales y lo documentado en `docs/integrations/api.md` / `environment.md`.
 - Donde viven hooks.
 - Donde viven schemas/validaciones.
 - Donde viven tests.
