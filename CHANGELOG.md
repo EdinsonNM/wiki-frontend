@@ -6,6 +6,16 @@ El formato sigue [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/) y e
 
 ## [Unreleased]
 
+## [1.7.0] - 2026-05-07
+
+### Added
+
+- GitHub Copilot: réplica de agentes, skills y `AGENTS-CATALOG.md` bajo `.github/` para mejor indexación; ajustes en `bin/frontend-agent-devkit.js`, `setup-agent-tools` y documentación asociada.
+
+### Changed
+
+- Wiki de arquitectura: un solo arquetipo canónico; “escala” se limita a adopción incremental y migración; se eliminan variantes `app/features/shared` por tamaño de proyecto (`application-scales`, `simplification`, `project-organization`, `layers-and-structure`, hub e índice).
+
 ## [1.6.0] - 2026-05-07
 
 ### Added
