@@ -21,6 +21,6 @@ Mapa:
 - Claude Code: `.claude/skills`, `.claude/agents`, `.claude/commands`
 - Antigravity: `AGENTS.md`, `GEMINI.md`, `.agent/rules`, `.agent/workflows`
 - OpenCode: `.opencode/agents`, `.opencode/skills`, `.opencode/commands`
-- GitHub Copilot: `.github/copilot-instructions.md` (desde `.agents/github-copilot/.github` o `tools/agents-kit/github-copilot/.github`)
+- GitHub Copilot: `.github/copilot-instructions.md` más réplica del catálogo en `.github/agents`, `.github/skills` y `.github/AGENTS-CATALOG.md` (fuente: `.agents/` o `tools/agents-kit`)
 
 Si el script omite archivos por existir, no los sobrescribas sin pedir permiso.

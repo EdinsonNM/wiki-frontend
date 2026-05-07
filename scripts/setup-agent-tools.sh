@@ -121,7 +121,10 @@ install_copilot() {
     return 0
   fi
   copy_dir_files "$src_dir" "$ROOT/.github"
-  echo "ready: .github/copilot-instructions.md"
+  copy_dir_files "$AGENTS_SOURCE/agents" "$ROOT/.github/agents"
+  copy_dir_files "$AGENTS_SOURCE/skills" "$ROOT/.github/skills"
+  copy_file "$AGENTS_SOURCE/AGENTS-CATALOG.md" "$ROOT/.github/AGENTS-CATALOG.md"
+  echo "ready: .github/copilot-instructions.md, .github/agents, .github/skills, AGENTS-CATALOG.md"
 }
 
 case "$TOOL" in

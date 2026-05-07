@@ -252,7 +252,7 @@ Cursor      -> .cursor/rules, .cursor/commands, .cursor/skills, .cursor/agents
 Claude Code -> .claude/agents, .claude/skills, .claude/commands (agentes desde .agents/agents)
 Antigravity -> .agent/rules, .agent/workflows, AGENTS.md, GEMINI.md
 OpenCode    -> .opencode/agents, .opencode/skills, .opencode/commands
-Copilot     -> .github/copilot-instructions.md (y otros archivos bajo .github del adaptador)
+Copilot     -> .github/copilot-instructions.md, .github/agents, .github/skills, .github/AGENTS-CATALOG.md (convive con workflows en .github/)
 ```
 
 El catálogo de agentes, skills y comandos vive en:

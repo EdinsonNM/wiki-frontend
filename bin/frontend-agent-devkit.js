@@ -207,7 +207,11 @@ function setup(tool, options) {
         'warn: no se encontró github-copilot/.github en .agents ni en el paquete. Ejecuta init o instala la última versión del CLI.'
       );
     }
-    console.log('ready: .github/copilot-instructions.md (instrucciones para Copilot en el repo)');
+    // Copilot no define rutas tipo .claude/skills; replicamos catálogo bajo .github/ como contexto indexable (convive con workflows).
+    copyDirFiles(path.join(src, 'agents'), path.join(CWD, '.github', 'agents'), options);
+    copyDirFiles(path.join(src, 'skills'), path.join(CWD, '.github', 'skills'), options);
+    copyPath(path.join(src, 'AGENTS-CATALOG.md'), path.join(CWD, '.github', 'AGENTS-CATALOG.md'), options);
+    console.log('ready: .github/copilot-instructions.md, .github/agents, .github/skills, AGENTS-CATALOG.md');
     return;
   }
 

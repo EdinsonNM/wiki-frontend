@@ -39,7 +39,7 @@ Si editas el kit fuente, trabaja en **`tools/agents-kit/`**. En este repo, Curso
 | Claude Code | `CLAUDE.md` | `.claude/skills/*/SKILL.md` | `.claude/agents/*.md` | `.claude/commands/*.md` |
 | Antigravity | `AGENTS.md`, `GEMINI.md` | verificar version | verificar version | `.agent/workflows` fallback |
 | OpenCode | `AGENTS.md` | `.opencode/skills` | `.opencode/agents/*.md` | `.opencode/commands/*.md` |
-| GitHub Copilot | `AGENTS.md` | — | — | — (instrucciones en `.github/copilot-instructions.md`) |
+| GitHub Copilot | `AGENTS.md`, `.github/copilot-instructions.md` | `.github/skills` (réplica) | `.github/agents/*.md` | catálogo en `.github/AGENTS-CATALOG.md` |
 
 ## Do Not
 

@@ -54,6 +54,7 @@ Referencia comunitaria consultada:
 
 ## GitHub Copilot
 
-- Instrucciones de repositorio: `.github/copilot-instructions.md` (el CLI fusiona el contenido desde `.agents/github-copilot/.github`, copiado del kit en `init`).
-- Convive con otros ficheros de `.github` (workflows, plantillas); el setup solo añade o actualiza lo que trae el adaptador del kit.
-- Referencia: [Documentación de Copilot sobre instrucciones personalizadas](https://docs.github.com/en/copilot/customizing-copilot/adding-repository-custom-instructions-for-github-copilot)
+- Instrucciones de repositorio: `.github/copilot-instructions.md` (adaptador en `.agents/github-copilot/.github`, copiado del kit en `init`).
+- El CLI también replica **subagentes** y **skills** en `.github/agents` y `.github/skills`, y el catálogo en `.github/AGENTS-CATALOG.md`, porque Copilot no tiene rutas propietarias equivalentes a `.claude/skills` o `.cursor/agents`: así el mismo Markdown queda bajo `.github/` como contexto indexable. La copia canónica del kit sigue siendo `.agents/` tras `init`.
+- Convive con workflows y el resto de `.github/`.
+- Referencia: [Instrucciones personalizadas en el repositorio](https://docs.github.com/en/copilot/customizing-copilot/adding-repository-custom-instructions-for-github-copilot)
