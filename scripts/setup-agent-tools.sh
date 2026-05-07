@@ -18,6 +18,8 @@ Usage:
   bash scripts/setup-agent-tools.sh cursor
   bash scripts/setup-agent-tools.sh claude
   bash scripts/setup-agent-tools.sh antigravity
+  bash scripts/setup-agent-tools.sh opencode
+  bash scripts/setup-agent-tools.sh copilot
   bash scripts/setup-agent-tools.sh all
 USAGE
 }
@@ -95,16 +97,47 @@ install_antigravity() {
   echo "note: AGENTS.md and GEMINI.md remain the conservative fallback."
 }
 
+install_opencode() {
+  echo "== OpenCode =="
+  copy_dir_files "$AGENTS_SOURCE/agents" "$ROOT/.opencode/agents"
+  copy_dir_files "$AGENTS_SOURCE/skills" "$ROOT/.opencode/skills"
+  copy_dir_files "$AGENTS_SOURCE/commands" "$ROOT/.opencode/commands"
+  copy_file "$AGENTS_SOURCE/AGENTS-CATALOG.md" "$ROOT/.opencode/AGENTS-CATALOG.md"
+  echo "ready: .opencode/agents"
+  echo "ready: .opencode/skills"
+  echo "ready: .opencode/commands"
+}
+
+install_copilot() {
+  echo "== GitHub Copilot =="
+  local primary="$AGENTS_SOURCE/github-copilot/.github"
+  local bundled="$ROOT/tools/agents-kit/github-copilot/.github"
+  local src_dir="$primary"
+  if [ ! -d "$src_dir" ] && [ -d "$bundled" ]; then
+    src_dir="$bundled"
+  fi
+  if [ ! -d "$src_dir" ]; then
+    echo "warn: no se encontró github-copilot/.github en .agents ni en tools/agents-kit." >&2
+    return 0
+  fi
+  copy_dir_files "$src_dir" "$ROOT/.github"
+  echo "ready: .github/copilot-instructions.md"
+}
+
 case "$TOOL" in
   codex) install_codex ;;
   cursor) install_cursor ;;
   claude|claude-code) install_claude ;;
   antigravity) install_antigravity ;;
+  opencode) install_opencode ;;
+  copilot) install_copilot ;;
   all)
     install_codex
     install_cursor
     install_claude
     install_antigravity
+    install_opencode
+    install_copilot
     ;;
   *)
     usage

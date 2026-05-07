@@ -11,7 +11,7 @@ usage() {
 Install frontend-agent-devkit starter into the current project.
 
 Usage:
-  bash install.sh [--tool codex|cursor|claude|antigravity|all] [--force]
+  bash install.sh [--tool codex|cursor|claude|antigravity|opencode|copilot|all] [--force]
 
 Remote usage after publishing:
   bash <(curl -fsSL https://raw.githubusercontent.com/EdinsonNM/frontend-agent-devkit/main/install.sh)
@@ -46,7 +46,7 @@ while [ "$#" -gt 0 ]; do
 done
 
 case "$TOOL" in
-  ""|codex|cursor|claude|claude-code|antigravity|all) ;;
+  ""|codex|cursor|claude|claude-code|antigravity|opencode|copilot|all) ;;
   *)
     echo "Invalid --tool value: $TOOL" >&2
     exit 1

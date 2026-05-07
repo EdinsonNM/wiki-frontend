@@ -51,3 +51,9 @@ Referencia comunitaria consultada:
 - Project subagents: `.opencode/agents/`
 - Project commands: `.opencode/commands/`
 - El setup copia la estructura base para permitir compatibilidad.
+
+## GitHub Copilot
+
+- Instrucciones de repositorio: `.github/copilot-instructions.md` (el CLI fusiona el contenido desde `.agents/github-copilot/.github`, copiado del kit en `init`).
+- Convive con otros ficheros de `.github` (workflows, plantillas); el setup solo añade o actualiza lo que trae el adaptador del kit.
+- Referencia: [Documentación de Copilot sobre instrucciones personalizadas](https://docs.github.com/en/copilot/customizing-copilot/adding-repository-custom-instructions-for-github-copilot)

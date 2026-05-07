@@ -7,6 +7,8 @@ bash scripts/setup-agent-tools.sh codex
 bash scripts/setup-agent-tools.sh cursor
 bash scripts/setup-agent-tools.sh claude
 bash scripts/setup-agent-tools.sh antigravity
+bash scripts/setup-agent-tools.sh opencode
+bash scripts/setup-agent-tools.sh copilot
 bash scripts/setup-agent-tools.sh all
 ```
 
@@ -18,5 +20,7 @@ Mapa:
 - Cursor: `.cursor/rules`, `.cursor/commands`, `.cursor/agents` (sync desde `.agents/agents`)
 - Claude Code: `.claude/skills`, `.claude/agents`, `.claude/commands`
 - Antigravity: `AGENTS.md`, `GEMINI.md`, `.agent/rules`, `.agent/workflows`
+- OpenCode: `.opencode/agents`, `.opencode/skills`, `.opencode/commands`
+- GitHub Copilot: `.github/copilot-instructions.md` (desde `.agents/github-copilot/.github` o `tools/agents-kit/github-copilot/.github`)
 
 Si el script omite archivos por existir, no los sobrescribas sin pedir permiso.

@@ -198,8 +198,16 @@ function setup(tool, options) {
 
   if (tool === 'copilot') {
     console.log('== GitHub Copilot ==');
-    copyDirFiles(path.join(src, 'github-copilot', '.github'), path.join(CWD, '.github'), options);
-    console.log('ready: .github (copilot-instructions.md)');
+    const primary = path.join(src, 'github-copilot', '.github');
+    const bundled = path.join(ROOT, 'tools', 'agents-kit', 'github-copilot', '.github');
+    const copilotGithub = exists(primary) ? primary : bundled;
+    copyDirFiles(copilotGithub, path.join(CWD, '.github'), options);
+    if (!exists(copilotGithub)) {
+      console.warn(
+        'warn: no se encontró github-copilot/.github en .agents ni en el paquete. Ejecuta init o instala la última versión del CLI.'
+      );
+    }
+    console.log('ready: .github/copilot-instructions.md (instrucciones para Copilot en el repo)');
     return;
   }
 

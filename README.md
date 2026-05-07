@@ -220,6 +220,7 @@ npx frontend-agent-devkit init --tool cursor
 npx frontend-agent-devkit init --tool claude
 npx frontend-agent-devkit init --tool codex
 npx frontend-agent-devkit init --tool opencode
+npx frontend-agent-devkit init --tool copilot
 npx frontend-agent-devkit init --tool all
 ```
 
@@ -233,8 +234,8 @@ frontend-agent-devkit init --tool cursor
 Comandos disponibles:
 
 ```bash
-frontend-agent-devkit init [--tool codex|cursor|claude|antigravity|opencode|all] [--force]
-frontend-agent-devkit setup --tool codex|cursor|claude|antigravity|opencode|all [--force]
+frontend-agent-devkit init [--tool codex|cursor|claude|antigravity|opencode|copilot|all] [--force]
+  frontend-agent-devkit setup --tool codex|cursor|claude|antigravity|opencode|copilot|all [--force]
 frontend-agent-devkit verify
 frontend-agent-devkit help
 ```
@@ -251,6 +252,7 @@ Cursor      -> .cursor/rules, .cursor/commands, .cursor/skills, .cursor/agents
 Claude Code -> .claude/agents, .claude/skills, .claude/commands (agentes desde .agents/agents)
 Antigravity -> .agent/rules, .agent/workflows, AGENTS.md, GEMINI.md
 OpenCode    -> .opencode/agents, .opencode/skills, .opencode/commands
+Copilot     -> .github/copilot-instructions.md (y otros archivos bajo .github del adaptador)
 ```
 
 El catálogo de agentes, skills y comandos vive en:
@@ -290,6 +292,7 @@ Valores esperados:
 - Claude Code
 - Antigravity
 - OpenCode
+- GitHub Copilot (instrucciones del repo en `.github/`)
 
 Antigravity cambia rápido; valida en tu versión instalada si reconoce `.agent/rules` y `.agent/workflows`. `AGENTS.md` y `GEMINI.md` quedan como fallback conservador.
 

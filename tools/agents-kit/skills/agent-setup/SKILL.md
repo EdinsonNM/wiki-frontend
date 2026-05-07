@@ -1,6 +1,6 @@
 ---
 name: agent-setup
-description: Instala o sincroniza agentes, skills, comandos y reglas del proyecto para Codex, Cursor, Claude Code o Antigravity.
+description: Instala o sincroniza agentes, skills, comandos y reglas del proyecto para Codex, Cursor, Claude Code, Antigravity, OpenCode o GitHub Copilot.
 disable-model-invocation: true
 ---
 
@@ -21,7 +21,7 @@ disable-model-invocation: true
 
 ## Workflow
 
-1. Identifica la herramienta: `codex`, `cursor`, `claude`, `antigravity` o `all`.
+1. Identifica la herramienta: `codex`, `cursor`, `claude`, `antigravity`, `opencode`, `copilot` o `all`.
 2. Ejecuta `bash scripts/setup-agent-tools.sh <tool>`.
 3. Reporta archivos creados o sincronizados.
 4. Indica cualquier ruta experimental que deba validarse manualmente.
@@ -38,6 +38,8 @@ Si editas el kit fuente, trabaja en **`tools/agents-kit/`**. En este repo, Curso
 | Cursor | `AGENTS.md`, `.cursor/rules/*.mdc` | `.cursor/skills` experimental | `.cursor/agents/*.md` | `.cursor/commands/*.md` |
 | Claude Code | `CLAUDE.md` | `.claude/skills/*/SKILL.md` | `.claude/agents/*.md` | `.claude/commands/*.md` |
 | Antigravity | `AGENTS.md`, `GEMINI.md` | verificar version | verificar version | `.agent/workflows` fallback |
+| OpenCode | `AGENTS.md` | `.opencode/skills` | `.opencode/agents/*.md` | `.opencode/commands/*.md` |
+| GitHub Copilot | `AGENTS.md` | — | — | — (instrucciones en `.github/copilot-instructions.md`) |
 
 ## Do Not
 
