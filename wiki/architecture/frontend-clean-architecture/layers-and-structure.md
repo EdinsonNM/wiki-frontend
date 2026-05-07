@@ -51,7 +51,7 @@ src/
 
 ## Uso
 
-Usar el arquetipo completo en proyectos grandes, de larga vida, con dominio importante o multiples integraciones.
+Este arquetipo es el **objetivo unico** para codigo nuevo y para repos ya alineados con la wiki.
 
-En proyectos existentes, mapear carpetas actuales contra estas responsabilidades antes de mover archivos.
+En proyectos existentes, mapear carpetas actuales contra estas responsabilidades y migrar por incrementos; ver `wiki/delivery/architecture-alignment.md`.
 

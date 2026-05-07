@@ -70,7 +70,7 @@ flowchart TD
   Architecture --> Layers["frontend-clean-architecture/layers-and-structure.md"]
   Architecture --> Dependencies["frontend-clean-architecture/dependency-rules.md"]
   Architecture --> Responsibilities["frontend-clean-architecture/responsibility-map.md"]
-  Architecture --> Scales["frontend-clean-architecture/application-scales.md"]
+  Architecture --> Scales["Escalas: adopcion incremental"]
   Architecture --> DataSchemas["frontend-clean-architecture/data-dtos-schemas.md"]
   Architecture --> Hooks["frontend-clean-architecture/hooks.md"]
   Architecture --> Presentation["frontend-clean-architecture/presentation-design-system.md"]

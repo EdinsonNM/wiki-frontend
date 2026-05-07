@@ -33,14 +33,7 @@ Estructura base recomendada:
   package.json
 ```
 
-Simplificar si el proyecto es pequeno:
-
-```text
-src/
-  app/
-  features/
-  shared/
-```
+En proyectos nuevos no se define una estructura alternativa por tamano; la base anterior es la referencia.
 
 ## Proyecto Existente
 

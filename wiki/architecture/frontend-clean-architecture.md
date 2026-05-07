@@ -17,7 +17,7 @@ Esta wiki define el **objetivo** de capas y boundaries. En proyectos nuevos y ex
 | Ver estructura base | [Capas Y Estructura](frontend-clean-architecture/layers-and-structure.md) |
 | Decidir dependencias entre capas | [Reglas De Dependencia](frontend-clean-architecture/dependency-rules.md) |
 | Ubicar un cambio | [Mapa De Responsabilidades](frontend-clean-architecture/responsibility-map.md) |
-| Elegir escala del proyecto | [Escalas De Aplicacion](frontend-clean-architecture/application-scales.md) |
+| Adopcion incremental frente al arquetipo | [Escalas De Aplicacion](frontend-clean-architecture/application-scales.md) |
 | DTOs, schemas y mappers | [Datos, DTOs Y Schemas](frontend-clean-architecture/data-dtos-schemas.md) |
 | Use cases y logica testeable | [Use Cases](frontend-clean-architecture/use-cases.md) |
 | Hooks y puente hacia React | [Hooks](frontend-clean-architecture/hooks.md) |

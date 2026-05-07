@@ -1,33 +1,19 @@
 # Escalas De Aplicacion
 
-## Proyecto Pequeno
+## Objetivo
 
-```text
-src/
-  app/
-  features/
-  shared/
-```
+Aclarar que **la forma del codigo en `src/` es una sola**: el arquetipo descrito en [Capas Y Estructura](layers-and-structure.md). No hay variantes oficiales por tamano de equipo, numero de integraciones o “fase inicial”.
 
-Usar esta forma si no hay complejidad de dominio ni multiples fuentes de datos.
+## Que Significa Escala Aqui
 
-## Proyecto Mediano
+- **Escala de adopcion**: cuanto codigo migras por iteracion en un repo existente, no que arbol de carpetas eliges para un proyecto nuevo.
+- **Proyectos nuevos**: crear desde el inicio `core`, `domains`, `infra`, `presentation`, `design-system`, `main` segun ese arquetipo (vacío donde aun no haya archivos esta bien; omitir capas enteras no).
+- **Proyectos existentes**: documentar lo real, medir la brecha frente al arquetipo y alinear con cambios minimos siguiendo [Architecture Alignment](../../delivery/architecture-alignment.md).
 
-```text
-src/
-  core/
-  features/
-  shared/
-  main/
-```
+## Fuera De Alcance De Esta Guia
 
-Cada feature contiene `components`, `hooks`, `services`, `schemas`.
+Definir layouts tipo `app/`, `features/` y `shared/` como alternativa valida al modelo de capas. Eso contradice esta wiki; solo procede con **excepcion explicita del usuario** registrada en `docs/architecture/decisions.md`.
 
-## Proyecto Grande O De Larga Vida
+## Relacion Con [Simplificacion](simplification.md)
 
-Usar el arquetipo completo con `domains`, `infra`, `presentation` y use cases.
-
-## Decision
-
-Elegir la escala por complejidad real, no por preferencia estetica.
-
+La simplificacion reduce duplicacion y archivos innecesarios **dentro** del modelo; no sustituye dominios, infra o presentation por una jerarquia plana.
