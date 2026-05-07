@@ -6,6 +6,13 @@ El formato sigue [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/) y e
 
 ## [Unreleased]
 
+## [1.7.1] - 2026-05-07
+
+### Changed
+
+- Integraciones y discovery: backends propios o proveedores (BaaS, etc.) sin asumir uno fijo; `docs/integrations/api.md` como punto de referencia con tabla de fuentes (incluido esquema mixto); obligación de mantener docs al día en proyectos existentes y preguntar si falta información (`wiki/architecture/frontend-integration.md`, `wiki/delivery/project-discovery.md`, `wiki/delivery/architecture-alignment.md`, `docs/integrations/environment.md`, `AGENTS.md`, `integration-agent`).
+- Réplicas coherentes en `demo/` donde aplica.
+
 ## [1.7.0] - 2026-05-07
 
 ### Added
